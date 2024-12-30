@@ -9,12 +9,16 @@
       height="125"
   />
   <div>
-    <h3>XX 원룸</h3>
-    <p></p>
+    <h3>{{ products[0] }}</h3>
+    <p>50만원</p>
   </div>
   <div>
-    <h3>XX 원룸</h3>
-    <p></p>
+    <h3>{{ products[1] }}</h3>
+    <p>100만원</p>
+  </div>
+  <div>
+    <h3>{{ products[2] }}</h3>
+    <p>110만원</p>
   </div>
 </template>
 
