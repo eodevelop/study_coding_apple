@@ -2,9 +2,23 @@
   <div class="menu">
     <a v-for="item in menu" :key="item">{{ item }}</a>
   </div>
-  <div v-for="(product, index) in products" :key="product">
-    <h3>{{ product }}</h3>
-    <p>{{ price[index] }} 만원</p>
+  <div>
+    <h4>{{ products[0] }}</h4>
+    <p>50만원</p>
+    <button @click="increase(0)"> 허위 매물 신고</button>
+    <span> 신고 수 : {{ reportCounts[0] }} </span>
+  </div>
+  <div>
+    <h4>{{ products[1] }}</h4>
+    <p>50만원</p>
+    <button @click="increase(1)"> 허위 매물 신고</button>
+    <span> 신고 수 : {{ reportCounts[1] }} </span>
+  </div>
+  <div>
+    <h4>{{ products[2] }}</h4>
+    <p>50만원</p>
+    <button @click="increase(2)"> 허위 매물 신고</button>
+    <span> 신고 수 : {{ reportCounts[2] }} </span>
   </div>
 </template>
 
@@ -15,8 +29,13 @@ export default {
     return {
       menu: ['Home', 'Products', 'About'],
       products: ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
-      price: [50, 100, 110],
+      reportCounts: [0, 0, 0],
     };
+  },
+  methods: {
+    increase(index) {
+      this.reportCounts[index]++;
+    },
   },
   components: {},
 };

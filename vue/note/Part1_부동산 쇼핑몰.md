@@ -9,3 +9,10 @@
 - 태그 옆에 v-for="item in items" 를 적어 주면 반복되는 형태로 사용 가능하다.
 - v-for 옆에 붙는 :key 의 경우 반복문을 쓸 때 꼭 써야하며 반복문 돌린 요소를 구분하기 위해서 씀
 - v-for 안에 index를 사용하고 싶다면 v-for="(item, index) in items" 를 사용하면 된다.
+
+## Vue 이벤트 핸들러로 click 감지하기 (허위매물 신고버튼 만들기)
+
+- 자바스크립트는 onclick 이벤트를 사용하지만 Vue는 v-on:click 을 사용한다.
+    - 줄여서 @click 으로 사용 가능하다.
+- 함수명은 한글로 작성하면 잘 안될수도 있다
+- methods 내부 공간에서 data에 접근하려면 this를 사용해야 한다.
