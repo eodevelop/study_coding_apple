@@ -1,8 +1,9 @@
 <template>
-  <div class="black-bg">
+  <div class="black-bg" v-if="isModalOpen">
     <div class="white-bg">
       <h4>상세페이지임</h4>
       <p>상세페이지 내용임</p>
+      <button @click="isModalOpen=false">닫기</button>
     </div>
   </div>
 
@@ -11,7 +12,7 @@
   </div>
   <div>
     <img src="./assets/img/room0.jpg" class="room-img" alt="원룸 사진 0">
-    <h4>{{ products[0] }}</h4>
+    <h4 @click="isModalOpen = true">{{ products[0] }}</h4>
     <p>50만원</p>
     <button @click="increase(0)"> 허위 매물 신고</button>
     <span> 신고 수 : {{ reportCounts[0] }} </span>
