@@ -1,8 +1,10 @@
 <template>
   <div class="black-bg" v-if="isModalOpen">
     <div class="white-bg">
-      <h4>상세페이지임</h4>
-      <p>상세페이지 내용임</p>
+      <h4>{{ oneRooms[oneRoomIndex].title }}</h4>
+      <img :src="oneRooms[oneRoomIndex].image" class="room-img" alt="원룸 사진">
+      <p>{{ oneRooms[oneRoomIndex].content }}</p>
+      <p>{{ oneRooms[oneRoomIndex].price }} 원</p>
       <button @click="isModalOpen=false">닫기</button>
     </div>
   </div>
@@ -10,9 +12,9 @@
   <div class="menu">
     <a v-for="item in menu" :key="item">{{ item }}</a>
   </div>
-  <div v-for="oneRoom in oneRooms" :key="oneRoom">
+  <div v-for="(oneRoom,index) in oneRooms" :key="index">
     <img :src="oneRoom.image" class="room-img" alt="원룸 사진">
-    <h4 @click="isModalOpen = true">{{ oneRoom.title }}</h4>
+    <h4 @click="isModalOpen = true; oneRoomIndex=index">{{ oneRoom.title }}</h4>
     <p>{{ oneRoom.price }} 원</p>
   </div>
 </template>
@@ -29,6 +31,7 @@ export default {
       reportCounts: [0, 0, 0],
       isModalOpen: false,
       oneRooms: oneRooms,
+      oneRoomIndex: 0,
     };
   },
   methods: {},
