@@ -10,30 +10,16 @@
   <div class="menu">
     <a v-for="item in menu" :key="item">{{ item }}</a>
   </div>
-  <div>
-    <img src="./assets/img/room0.jpg" class="room-img" alt="원룸 사진 0">
-    <h4 @click="isModalOpen = true">{{ products[0] }}</h4>
-    <p>50만원</p>
-    <button @click="increase(0)"> 허위 매물 신고</button>
-    <span> 신고 수 : {{ reportCounts[0] }} </span>
-  </div>
-  <div>
-    <img src="./assets/img/room1.jpg" class="room-img" alt="원룸 사진 1">
-    <h4>{{ products[1] }}</h4>
-    <p>50만원</p>
-    <button @click="increase(1)"> 허위 매물 신고</button>
-    <span> 신고 수 : {{ reportCounts[1] }} </span>
-  </div>
-  <div>
-    <img src="./assets/img/room2.jpg" class="room-img" alt="원룸 사진 2">
-    <h4>{{ products[2] }}</h4>
-    <p>50만원</p>
-    <button @click="increase(2)"> 허위 매물 신고</button>
-    <span> 신고 수 : {{ reportCounts[2] }} </span>
+  <div v-for="oneRoom in oneRooms" :key="oneRoom">
+    <img :src="oneRoom.image" class="room-img" alt="원룸 사진">
+    <h4 @click="isModalOpen = true">{{ oneRoom.title }}</h4>
+    <p>{{ oneRoom.price }} 원</p>
   </div>
 </template>
 
 <script>
+import oneRooms from "./assets/oneroom.js";
+
 export default {
   name: "App",
   data() {
@@ -42,13 +28,10 @@ export default {
       products: ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
       reportCounts: [0, 0, 0],
       isModalOpen: false,
+      oneRooms: oneRooms,
     };
   },
-  methods: {
-    increase(index) {
-      this.reportCounts[index]++;
-    },
-  },
+  methods: {},
   components: {},
 };
 </script>
