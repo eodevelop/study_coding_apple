@@ -1,17 +1,13 @@
 <template>
-  <div class="black-bg" v-if="isModalOpen">
-    <div class="white-bg">
-      <h4>{{ oneRooms[oneRoomIndex].title }}</h4>
-      <img :src="oneRooms[oneRoomIndex].image" class="room-img" alt="원룸 사진">
-      <p>{{ oneRooms[oneRoomIndex].content }}</p>
-      <p>{{ oneRooms[oneRoomIndex].price }} 원</p>
-      <button @click="isModalOpen=false">닫기</button>
-    </div>
-  </div>
-
   <div class="menu">
     <a v-for="item in menu" :key="item">{{ item }}</a>
   </div>
+  <OneRoomModal
+      :isModalOpen="isModalOpen"
+      :oneRooms="oneRooms"
+      :oneRoomIndex="oneRoomIndex"
+  />
+  <DiscountBanner/>
   <div v-for="(oneRoom,index) in oneRooms" :key="index">
     <img :src="oneRoom.image" class="room-img" alt="원룸 사진">
     <h4 @click="isModalOpen = true; oneRoomIndex=index">{{ oneRoom.title }}</h4>
@@ -21,6 +17,8 @@
 
 <script>
 import oneRooms from "./assets/oneroom.js";
+import DiscountBanner from "@/components/DiscountBanner.vue";
+import OneRoomModal from "@/components/OneRoomModal.vue";
 
 export default {
   name: "App",
@@ -35,34 +33,11 @@ export default {
     };
   },
   methods: {},
-  components: {},
+  components: {OneRoomModal, DiscountBanner},
 };
 </script>
 
 <style scoped>
-body {
-  margin: 0;
-}
-
-div {
-  box-sizing: border-box;
-}
-
-.black-bg {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  padding: 20px;
-}
-
-.white-bg {
-  width: 100%;
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-}
-
 div {
   text-align: center;
 }
@@ -80,6 +55,6 @@ div {
 
 .room-img {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 </style>
