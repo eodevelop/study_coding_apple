@@ -8,17 +8,14 @@
       :oneRoomIndex="oneRoomIndex"
   />
   <DiscountBanner/>
-  <div v-for="(oneRoom,index) in oneRooms" :key="index">
-    <img :src="oneRoom.image" class="room-img" alt="원룸 사진">
-    <h4 @click="isModalOpen = true; oneRoomIndex=index">{{ oneRoom.title }}</h4>
-    <p>{{ oneRoom.price }} 원</p>
-  </div>
+  <OneRoomCard :oneRooms="oneRooms"/>
 </template>
 
 <script>
 import oneRooms from "./assets/oneroom.js";
 import DiscountBanner from "@/components/DiscountBanner.vue";
 import OneRoomModal from "@/components/OneRoomModal.vue";
+import OneRoomCard from "@/components/OneRoomCard.vue";
 
 export default {
   name: "App",
@@ -33,7 +30,7 @@ export default {
     };
   },
   methods: {},
-  components: {OneRoomModal, DiscountBanner},
+  components: {OneRoomCard, OneRoomModal, DiscountBanner},
 };
 </script>
 
@@ -51,10 +48,5 @@ div {
 .menu a {
   color: white;
   padding: 10px;
-}
-
-.room-img {
-  width: 100%;
-  margin-top: 20px;
 }
 </style>
