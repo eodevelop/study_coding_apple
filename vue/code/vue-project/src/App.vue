@@ -8,7 +8,8 @@
       :oneRoomIndex="oneRoomIndex"
   />
   <DiscountBanner/>
-  <OneRoomCard v-for="oneRoom in oneRooms" :key="oneRoom" :oneRoom="oneRoom"/>
+  <OneRoomCard v-for="oneRoom in oneRooms" :key="oneRoom" :oneRoom="oneRoom"
+               @openModal="isModalOpen=true; oneRoomIndex=$event"/>
 </template>
 
 <script>
