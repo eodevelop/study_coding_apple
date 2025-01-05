@@ -8,7 +8,7 @@
       :oneRoomIndex="oneRoomIndex"
   />
   <DiscountBanner/>
-  <OneRoomCard :oneRooms="oneRooms"/>
+  <OneRoomCard v-for="oneRoom in oneRooms" :key="oneRoom" :oneRoom="oneRoom"/>
 </template>
 
 <script>
