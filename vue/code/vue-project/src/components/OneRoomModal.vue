@@ -5,7 +5,7 @@
       <h4>{{ oneRooms[oneRoomIndex].title }}</h4>
       <p>{{ oneRooms[oneRoomIndex].content }}</p>
       <p>{{ oneRooms[oneRoomIndex].price }} 원</p>
-      <!--      <button @click="isModalOpen=false">닫기</button>-->
+      <button @click="closeModal">닫기</button>
     </div>
   </div>
 </template>
@@ -18,6 +18,11 @@ export default {
     oneRooms: Array,
     oneRoomIndex: Number,
   },
+  methods: {
+    closeModal() {
+      this.$emit('closeModal');
+    }
+  }
 }
 </script>
 

@@ -6,6 +6,7 @@
       :isModalOpen="isModalOpen"
       :oneRooms="oneRooms"
       :oneRoomIndex="oneRoomIndex"
+      @closeModal="isModalOpen=false"
   />
   <DiscountBanner/>
   <OneRoomCard v-for="oneRoom in oneRooms" :key="oneRoom" :oneRoom="oneRoom"
