@@ -4,7 +4,8 @@
       <img :src="oneRooms[oneRoomIndex].image" class="room-img" alt="원룸 사진">
       <h4>{{ oneRooms[oneRoomIndex].title }}</h4>
       <p>{{ oneRooms[oneRoomIndex].content }}</p>
-      <p>{{ oneRooms[oneRoomIndex].price }} 원</p>
+      <input v-model.number="month">
+      <p> {{ month }} 개월 선택함 : {{ oneRooms[oneRoomIndex].price * month }} 원</p>
       <button @click="closeModal">닫기</button>
     </div>
   </div>
@@ -13,6 +14,11 @@
 <script>
 export default {
   name: "OneRoomModal",
+  data() {
+    return {
+      month: 1,
+    }
+  },
   props: {
     isModalOpen: Boolean,
     oneRooms: Array,
