@@ -19,6 +19,18 @@ export default {
       month: 1,
     }
   },
+  watch: {
+    month(newValue) {
+      if (newValue > 12) {
+        alert('13개월 이상 선택할 수 없습니다.');
+        this.month = 1;
+      }
+      if (isNaN(newValue)) {
+        alert('숫자만 입력 가능합니다.');
+        this.month = 1;
+      }
+    }
+  },
   props: {
     isModalOpen: Boolean,
     oneRooms: Array,
