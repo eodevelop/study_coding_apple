@@ -4,8 +4,6 @@
   </div>
   <DiscountBanner/>
   <button @click="priceSort">가격순 정렬</button>
-  <button @click="priceSortReverse">가격 역순 정렬</button>
-  <button @click="nameSort">이름순 정렬</button>
   <button @click="sortBack">되돌리기</button>
   <OneRoomModal
       :isModalOpen="isModalOpen"
@@ -39,12 +37,6 @@ export default {
   methods: {
     priceSort() {
       this.oneRooms.sort((a, b) => a.price - b.price);
-    },
-    priceSortReverse() {
-      this.oneRooms.sort((a, b) => b.price - a.price);
-    },
-    nameSort() {
-      this.oneRooms.sort((a, b) => a.title.localeCompare(b.title));
     },
     sortBack() {
       this.oneRooms = [...this.originOneRooms];

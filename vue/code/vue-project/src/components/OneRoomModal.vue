@@ -40,6 +40,12 @@ export default {
     closeModal() {
       this.$emit('closeModal');
     }
+  },
+  updated() {
+    if (this.month === 2) {
+      alert('3개월 부터 가능합니다.');
+      this.month = 1;
+    }
   }
 }
 </script>
