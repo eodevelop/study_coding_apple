@@ -2,12 +2,14 @@
   <div class="menu">
     <a v-for="item in menu" :key="item">{{ item }}</a>
   </div>
-  <OneRoomModal
-      :isModalOpen="isModalOpen"
-      :oneRooms="oneRooms"
-      :oneRoomIndex="oneRoomIndex"
-      @closeModal="isModalOpen=false"
-  />
+  <transition name="fade">
+    <OneRoomModal
+        :isModalOpen="isModalOpen"
+        :oneRooms="oneRooms"
+        :oneRoomIndex="oneRoomIndex"
+        @closeModal="isModalOpen=false"
+    />
+  </transition>
   <DiscountBanner/>
   <OneRoomCard v-for="oneRoom in oneRooms" :key="oneRoom" :oneRoom="oneRoom"
                @openModal="isModalOpen=true; oneRoomIndex=$event"/>
@@ -50,5 +52,29 @@ div {
 .menu a {
   color: white;
   padding: 10px;
+}
+
+.fade-enter-from {
+  transform: translateY(-1000px);
+}
+
+.fade-enter-active {
+  transition: all 1s;
+}
+
+.fade-enter-to {
+  transform: translateY(0);
+}
+
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-leave-active {
+  transition: all 1s;
+}
+
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
