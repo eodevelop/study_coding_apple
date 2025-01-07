@@ -2,16 +2,18 @@
   <div class="menu">
     <a v-for="item in menu" :key="item">{{ item }}</a>
   </div>
-  <transition name="fade">
-    <OneRoomModal
-        :isModalOpen="isModalOpen"
-        :oneRooms="oneRooms"
-        :oneRoomIndex="oneRoomIndex"
-        @closeModal="isModalOpen=false"
-    />
-  </transition>
   <DiscountBanner/>
-  <OneRoomCard v-for="oneRoom in oneRooms" :key="oneRoom" :oneRoom="oneRoom"
+  <button @click="priceSort">가격순 정렬</button>
+  <button @click="priceSortReverse">가격 역순 정렬</button>
+  <button @click="nameSort">이름순 정렬</button>
+  <button @click="sortBack">되돌리기</button>
+  <OneRoomModal
+      :isModalOpen="isModalOpen"
+      :oneRooms="oneRooms"
+      :oneRoomIndex="oneRoomIndex"
+      @closeModal="isModalOpen=false"
+  />
+  <OneRoomCard v-for="oneRoom in oneRooms" :key="oneRoom.id" :oneRoom="oneRoom"
                @openModal="isModalOpen=true; oneRoomIndex=$event"/>
 </template>
 
@@ -29,11 +31,25 @@ export default {
       products: ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
       reportCounts: [0, 0, 0],
       isModalOpen: false,
-      oneRooms: oneRooms,
+      originOneRooms: oneRooms,
+      oneRooms: [...oneRooms],
       oneRoomIndex: 0,
     };
   },
-  methods: {},
+  methods: {
+    priceSort() {
+      this.oneRooms.sort((a, b) => a.price - b.price);
+    },
+    priceSortReverse() {
+      this.oneRooms.sort((a, b) => b.price - a.price);
+    },
+    nameSort() {
+      this.oneRooms.sort((a, b) => a.title.localeCompare(b.title));
+    },
+    sortBack() {
+      this.oneRooms = [...this.originOneRooms];
+    }
+  },
   components: {OneRoomCard, OneRoomModal, DiscountBanner},
 };
 </script>
@@ -52,29 +68,5 @@ div {
 .menu a {
   color: white;
   padding: 10px;
-}
-
-.fade-enter-from {
-  transform: translateY(-1000px);
-}
-
-.fade-enter-active {
-  transition: all 1s;
-}
-
-.fade-enter-to {
-  transform: translateY(0);
-}
-
-.fade-leave-from {
-  opacity: 1;
-}
-
-.fade-leave-active {
-  transition: all 1s;
-}
-
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
