@@ -29,3 +29,38 @@ table {
     padding: 15px;
     border-bottom: 1px solid #c2d3de;
 }
+
+.btn {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: chocolate;
+}
+
+.btn:focus {
+    background-color: grey;
+}
+
+.btn:active {
+    background-color: brown;
+    border: 2px solid black;
+}
+
+.custom-link {
+    text-decoration: none;
+}
+
+.custom-link:link {
+    color: aqua;
+}
+
+.custom-link:visited {
+    color: violet;
+}
