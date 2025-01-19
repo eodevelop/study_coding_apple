@@ -1,0 +1,14 @@
+@font-face {
+    font-family: '굴려썽';
+    src: url('../../font/gulim.ttc');
+}
+
+body {
+    margin: 0;
+    font-family: '굴려썽', sans-serif;
+    font-weight: 900;
+}
+
+div, input, textarea {
+    box-sizing: border-box;
+}
