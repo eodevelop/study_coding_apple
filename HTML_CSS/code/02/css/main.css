@@ -1,14 +1,25 @@
-@font-face {
-    font-family: '굴려썽';
-    src: url('../../font/gulim.ttc');
+.flex-container {
+    display: flex;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    background-color: #312f2f;
 }
 
-body {
-    margin: 0;
-    font-family: '굴려썽', sans-serif;
-    font-weight: 900;
+.flex-item {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    margin: 5px;
 }
 
-div, input, textarea {
-    box-sizing: border-box;
+.nav-container {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding: 5px;
+}
+
+.nav-item {
+    margin-right: 10px;
 }
