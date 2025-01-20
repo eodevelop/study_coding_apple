@@ -41,15 +41,26 @@ div {
     position: fixed;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .explain-box {
     width: 80%;
     max-width: 600px;
     margin: auto;
-    padding:20px;
+    padding: 20px;
     text-align: center;
     background-color: #eee;
     position: relative;
     top: -40px;
+}
+
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    height: 40px;
+    background-color: #312f2f;
+    color: white;
 }
