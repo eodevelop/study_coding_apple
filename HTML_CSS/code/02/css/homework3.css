@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: #312f2f;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100vh;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+    .container > div {
+        flex: 1 1 calc(50% - 20px); /* 2개씩 2줄 */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
