@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: #312f2f;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.product-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.product-container div {
+    float: left;
+    width: 25%;
+}
+
+@media screen and (max-width: 1200px) {
+    .product-container div {
+        width: 50%;
+    }
+
+    .product-container {
+        max-width: 700px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-container div {
+        width: 100%;
+    }
+
+    .product-container {
+        max-width: 600px;
+    }
+}
