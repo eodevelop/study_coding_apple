@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #312f2f;
+  color: white;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+button {
+  display: inline-block; /* 콘텐츠 크기 기반 */
+  padding: 10px 20px;
+  background: #444445;
+  color: white;
+  border: none;
+  font-size: 14px;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+.container {
+  overflow: auto;
+}
+
+.introduction {
+  display: flex;
+  height: 400px;
+  background: rgb(86, 86, 250);
+  background: linear-gradient(to bottom, #4b96d9, #4b65be);
+}
+
+.introduction_text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 80px 40px 80px;
+  text-align: left;
+  gap: 20px;
+}
+
+.introduction_text > span:nth-child(1) {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.introduction_text > span:nth-child(2) {
+  font-size: 14px;
+}
+
+.introduction_image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.introduction_image > img {
+  width: 45%;
+  margin-top: 140px;
+}
