@@ -173,7 +173,7 @@
 .side-nav {
   position: fixed;
   top: 0;
-  left: -100px;
+  left: 0;
   width: 160px;
   height: 100vh;
   background-color: #333;
@@ -181,9 +181,29 @@
   z-index: 1000;
   padding: 20px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-  transition-duration: 1s;
+  text-align: right;
+  transition: all 1s;
+  transform: translateX(-100px);
 }
 
 .side-nav:hover {
-  transform: translateX(100px);
+  transform: translateX(0);
+  text-align: center;
+
+  p:nth-child(2) {
+    animation-name: slide;
+    animation-duration: 1s;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-250px);
+  }
+  50% {
+    transform: translateX(20px) skewX(-30deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
