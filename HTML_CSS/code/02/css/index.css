@@ -14,4 +14,91 @@
 
 .blue-box {
   background-color: blue;
+}
+
+.list {
+  width: 30%;
+}
+.list > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgb(209, 209, 209);
+}
+.list > ul > li {
+  border-bottom: 1px solid rgb(209, 209, 209);
+  padding: 10px;
+}
+.list > ul > li:last-child {
+  border-bottom: none;
+}
+.list > ul > li:active {
+  background-color: rgb(91, 107, 182);
+  color: white;
+}
+
+.green-alert {
+  background-color: rgb(170, 218, 170);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  border: none;
+}
+.green-alert p {
+  margin: 0;
+  color: rgb(94, 116, 94);
+}
+.green-alert p:first-child {
+  font-weight: bold;
+}
+
+.blue-alert {
+  background-color: rgb(175, 205, 240);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  border: none;
+}
+.blue-alert p {
+  margin: 0;
+  color: rgb(72, 96, 124);
+}
+.blue-alert p:first-child {
+  font-weight: bold;
+}
+
+.yellow-alert {
+  background-color: rgb(236, 236, 205);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  border: none;
+}
+.yellow-alert p {
+  margin: 0;
+  color: rgb(153, 153, 118);
+}
+.yellow-alert p:first-child {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+}
+
+.col-6 {
+  width: 50%;
+  padding: 10px;
+  background-color: rgb(217, 168, 240);
+  border: 1px solid rgb(209, 209, 209);
+}
+
+.col-4 {
+  width: 33.333333%;
+  padding: 10px;
+  background-color: rgb(217, 168, 240);
+  border: 1px solid rgb(209, 209, 209);
 }/*# sourceMappingURL=index.css.map */

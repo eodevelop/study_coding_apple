@@ -18,3 +18,77 @@
   @extend %box;
   background-color: blue;
 }
+
+.list {
+  width: 30%;
+
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgb(209, 209, 209);
+
+    > li {
+      border-bottom: 1px solid rgb(209, 209, 209);
+      padding: 10px;
+    }
+
+    > li:last-child {
+      border-bottom: none;
+    }
+
+    > li:active {
+      background-color: rgb(91, 107, 182);
+      color: white;
+    }
+  }
+}
+
+@mixin alert($color, $font-color) {
+  background-color: $color;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  border: none;
+
+  p {
+    margin: 0;
+    color: $font-color;
+  }
+
+  p:first-child {
+    font-weight: bold;
+  }
+}
+
+.green-alert {
+  @include alert(rgb(170, 218, 170), rgb(94, 116, 94));
+}
+
+.blue-alert {
+  @include alert(rgb(175, 205, 240), rgb(72, 96, 124));
+}
+
+.yellow-alert {
+  @include alert(rgb(236, 236, 205), rgb(153, 153, 118));
+}
+
+@mixin col($width) {
+  width: $width;
+  padding: 10px;
+  background-color: rgb(217, 168, 240);
+  border: 1px solid rgb(209, 209, 209);
+}
+
+.row {
+  display: flex;
+}
+
+.col-6 {
+  @include col(50%);
+}
+
+.col-4 {
+  @include col(33.333333%);
+}
