@@ -1,6 +1,6 @@
 %box {
-  width: 200px;
-  height: 200px;
+  width: 20px;
+  height: 20px;
   padding: 20px;
 }
 
@@ -91,4 +91,99 @@
 
 .col-4 {
   @include col(33.333333%);
+}
+
+.ani-text {
+  text-align: center;
+}
+.ani-text:hover {
+  animation-name: 왔다갔다;
+  animation-duration: 10s;
+}
+
+@keyframes 왔다갔다 {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+.shake {
+  width: 100px;
+  height: 40px;
+  background-color: skyblue;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin: auto;
+}
+
+.shake:hover {
+  animation-name: 숙제1;
+  animation-duration: 1s;
+}
+
+@keyframes 숙제1 {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  33% {
+    transform: rotate(20deg);
+  }
+
+  66% {
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.plus {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.plus:hover {
+  animation-name: 숙제2;
+  animation-duration: 1s;
+}
+
+@keyframes 숙제2 {
+  50% {
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    transform: rotate(45deg) scale(1.5);
+  }
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: -100px;
+  width: 160px;
+  height: 100vh;
+  background-color: #333;
+  color: white;
+  z-index: 1000;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition-duration: 1s;
+}
+
+.side-nav:hover {
+  transform: translateX(100px);
 }
