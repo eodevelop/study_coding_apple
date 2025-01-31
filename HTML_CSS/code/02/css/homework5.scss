@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: rgb(218, 217, 217);
+  background: #eee;
   color: white;
 }
 
@@ -11,6 +11,7 @@ body {
 }
 
 $home_blue: rgb(53, 53, 138);
+$home_black: #464646;
 
 .sidebar {
   position: fixed;
@@ -26,15 +27,17 @@ $home_blue: rgb(53, 53, 138);
   align-items: center;
   z-index: 5;
 
-  div {
+  > div {
     display: flex;
     gap: 10px;
-    i {
+    > i {
       margin: 0;
+      padding: 0;
     }
-    p {
+    > p {
       font-size: 0;
       margin: 0;
+      padding: 0;
     }
   }
 }
@@ -47,7 +50,7 @@ $home_blue: rgb(53, 53, 138);
   p {
     font-size: 14px;
     animation-name: slide;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
   }
 }
 
@@ -66,7 +69,6 @@ $home_blue: rgb(53, 53, 138);
   top: 0;
   width: calc(100% - 50px);
   height: 100vh;
-  background-color: antiquewhite;
 }
 
 .header {
@@ -80,4 +82,138 @@ $home_blue: rgb(53, 53, 138);
   box-shadow: 0 2px 8px rgba(168, 168, 168, 0.2);
   color: gray;
   padding: 0 20px 0 20px;
+}
+
+.search {
+  display: flex;
+
+  > input {
+    border: 1px solid #e7e7e7;
+    background: none;
+    margin: 0;
+    width: 150px;
+    height: 30px;
+    padding-left: 10px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  > input:focus {
+    width: 250px;
+    outline: none; // 기본 포커스 테두리 제거
+    border-color: #80bfff; // 더더 밝은 파란색
+    box-shadow: 0 0 2px rgba(128, 191, 255, 0.3),
+      0 0 4px rgba(128, 191, 255, 0.2), 0 0 8px rgba(128, 191, 255, 0.1);
+  }
+
+  > button {
+    border: 1px solid #e7e7e7;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    background: $home_black;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: white;
+  }
+}
+
+.my-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  > i {
+    margin: 0;
+  }
+  > span {
+    font-size: 13px;
+    margin: 0;
+  }
+}
+
+.content {
+  padding: 20px 10px 0 10px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-title {
+  font-size: 20px;
+  font-weight: 550;
+}
+
+.content-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@mixin card($border-color) {
+  width: 24%;
+  min-width: 170px;
+  height: 100px;
+  border-left: 3px solid $border-color;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+  background: white;
+  color: gray;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    > span:nth-child(1) {
+      font-size: 13px;
+    }
+
+    > span:nth-child(2) {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  > i {
+    font-size: 25px;
+    margin-right: 5px;
+  }
+
+  @media (max-width: 760px) {
+    width: 100%;
+    margin-bottom: 10px; // 카드 사이 간격 추가
+  }
+}
+
+@media (max-width: 560px) {
+  .content-card {
+    flex-direction: column;
+  }
+}
+
+.skyblue-card {
+  @include card(skyblue);
+}
+
+.green-card {
+  @include card(rgb(157, 221, 157));
+}
+
+.blue-card {
+  @include card($home_blue);
+}
+
+.orange-card {
+  @include card(orange);
 }
