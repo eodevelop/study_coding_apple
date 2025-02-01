@@ -16,3 +16,15 @@
 - html 파일은 위에서 부터 읽기 때문에 script 를 위에 쓰면 자바스크립트 코드가 정상적으로 동작하지 못한다.
 
 ## function의 파라미터 문법
+
+## 자바스크립트 이벤트리스너
+
+- id 로 태그에 접기 귀찮다면 다른 방법은 class 로 접근하는것
+  - getElementsByClassName('') 으로 접근 가능하다.
+    > 그럼 그냥 id랑 같지 않나?
+  - 클래스명은 여러군데 쓰이기 때문에 인덱스도 적어서 접근해야한다.
+- 자바스크립트에서는 addEventListener() 를 사용하면 HTML 에 javascript 코드 추가 없이 기능 연결이 가능하다.
+  - document
+    .getElementById("close")
+    .addEventListener("click", () => changeAlertDisplay("none", ""));
+  - 위와 같이 사용가능하며 () => 를 생략하면 해당 함수가 바로 실행되어 버리기 떄문에 꼭 필요하다

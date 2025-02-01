@@ -9,7 +9,7 @@
     <div class="alert-box" id="alert">
       <span id="span"></span>
       <input type="text" />
-      <button onclick="changeAlertDisplay('none', '')">닫기</button>
+      <button id="close">닫기</button>
     </div>
     <button onclick="changeAlertDisplay('block', '아이디 입력하세요')">
       버튼
@@ -19,6 +19,10 @@
     </button>
   </body>
   <script>
+    document
+      .getElementById("close")
+      .addEventListener("click", () => changeAlertDisplay("none", ""));
+
     function changeAlertDisplay(display, text) {
       document.getElementById("span").textContent = text;
       document.getElementById("alert").style.display = display;
