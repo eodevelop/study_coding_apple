@@ -7,18 +7,21 @@
   </head>
   <body>
     <div class="alert-box" id="alert">
-      알림창임
-      <button onclick="alertClose()">닫기</button>
+      <span id="span"></span>
+      <input type="text" />
+      <button onclick="changeAlertDisplay('none', '')">닫기</button>
     </div>
-    <button onclick="alertOpen()">버튼</button>
+    <button onclick="changeAlertDisplay('block', '아이디 입력하세요')">
+      버튼
+    </button>
+    <button onclick="changeAlertDisplay('block', '비밀번호 입력하세요')">
+      버튼2
+    </button>
   </body>
   <script>
-    function alertOpen() {
-      document.getElementById("alert").style.display = "block";
-    }
-
-    function alertClose() {
-      document.getElementById("alert").style.display = "none";
+    function changeAlertDisplay(display, text) {
+      document.getElementById("span").textContent = text;
+      document.getElementById("alert").style.display = display;
     }
   </script>
 </html>
