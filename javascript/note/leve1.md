@@ -53,3 +53,5 @@
 ## 폼만들며 배워보는 if else
 
 ## 공백검사 숙제와 else if 문법
+
+## input, change 이벤트와 and, or 연산자
