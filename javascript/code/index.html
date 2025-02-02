@@ -48,6 +48,21 @@
       5초 이내 구매시 사은품 증정
     </div>
     <button id="login-btn">로그인</button>
+    <button id="btnPrevious" onclick="previousSlide()"><</button>
+    <button id="btnNext" onclick="nextSlide()"">></button>
+    <div style="overflow: hidden">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="./img/car1.png" />
+        </div>
+        <div class="slide-box slide-2">
+          <img src="./img/car2.png" />
+        </div>
+        <div class="slide-box">
+          <img src="./img/car3.png" />
+        </div>
+      </div>
+    </div>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -95,5 +110,30 @@
         document.querySelector("#removeAlert").innerHTML = timeVal--;
       }
     }, 1000);
+
+    var slidetranslateX = 0;
+    function nextSlide() {
+      if (slidetranslateX < 200) {
+        slidetranslateX += 100;
+      } else {
+        slidetranslateX = 0;
+      }
+      $(".slide-container").css(
+        "transform",
+        "translateX(-" + slidetranslateX + "vw)"
+      );
+    }
+
+    function previousSlide() {
+      if (slidetranslateX > 0) {
+        slidetranslateX -= 100;
+      } else {
+        slidetranslateX = 200;
+      }
+      $(".slide-container").css(
+        "transform",
+        "translateX(-" + slidetranslateX + "vw)"
+      );
+    }
   </script>
 </html>
