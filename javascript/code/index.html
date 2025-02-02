@@ -44,6 +44,9 @@
       <li class="list-group-item">A fourth item</li>
       <li class="list-group-item">And a fifth one</li>
     </ul>
+    <div class="alert alert-danger" id="removeAlert">
+      5초 이내 구매시 사은품 증정
+    </div>
     <button id="login-btn">로그인</button>
   </body>
   <script
@@ -86,28 +89,11 @@
       }
     });
 
-    function game_369(number) {
-      if (number % 3 === 0) {
-        alert("짝");
+    var timeVal = 5;
+    setInterval(function () {
+      if (timeVal >= 0) {
+        document.querySelector("#removeAlert").innerHTML = timeVal--;
       }
-
-      if (number % 9 === 0) {
-        alert("짝");
-      }
-    }
-
-    var 예금액 = 60000;
-    var 미래예금액 = 0;
-
-    function calc() {
-      if (예금액 >= 50000) {
-        미래예금액 = 예금액 * 1.2 * 1.2;
-      } else {
-        미래예금액 = 예금액 * 1.15 * 1.15;
-      }
-    }
-
-    calc();
-    console.log("미래예금액 : " + 미래예금액);
+    }, 1000);
   </script>
 </html>
