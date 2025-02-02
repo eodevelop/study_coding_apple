@@ -51,3 +51,5 @@
 - display : none 보다 visibility : hidden 이 더 좋은데 둘의 차이는 display 이 경우 진짜 없애는 방식이고 visibility 의 경우 모습만 순기는 방식이다.
 
 ## 폼만들며 배워보는 if else
+
+## 공백검사 숙제와 else if 문법
