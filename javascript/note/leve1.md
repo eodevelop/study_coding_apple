@@ -24,7 +24,14 @@
     > 그럼 그냥 id랑 같지 않나?
   - 클래스명은 여러군데 쓰이기 때문에 인덱스도 적어서 접근해야한다.
 - 자바스크립트에서는 addEventListener() 를 사용하면 HTML 에 javascript 코드 추가 없이 기능 연결이 가능하다.
+
   - document
     .getElementById("close")
     .addEventListener("click", () => changeAlertDisplay("none", ""));
   - 위와 같이 사용가능하며 () => 를 생략하면 해당 함수가 바로 실행되어 버리기 떄문에 꼭 필요하다
+
+## 서브메뉴 만들어보기와 classList 다루기
+
+- 태그에 class 를 탈부착 하는 방식이 애니메이션 추가나 나중에 재사용 하기에 편리하다.
+- querySelector 를 사용하면 css 에서 접근하듯이 태그에 접근 가능하다.
+  - querySelector의 특징은 제일 첫번째 태그 요소만 찾아준다.
