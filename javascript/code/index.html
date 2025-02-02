@@ -15,7 +15,18 @@
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
-        <button class="btn btn-danger" id="close">닫기</button>
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="id" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="submit">
+            전송
+          </button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
       </div>
     </div>
     <nav class="navbar navbar-light bg-light">
@@ -58,6 +69,16 @@
 
     $("#close").on("click", function () {
       $(".black-bg").toggleClass("show-modal");
+    });
+
+    $("#submit").on("click", function () {
+      const idVal = $("#id").val();
+      const passwordVal = $("#password").val();
+
+      if (idVal === "" || passwordVal === "") {
+        alert("입력해");
+        return false;
+      }
     });
   </script>
 </html>
