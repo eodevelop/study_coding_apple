@@ -1,9 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
-</html>
+<div></div>
+<button id="btnTest">버튼</button>
+
+<script>
+  var test = () => {
+    console.log(this);
+  };
+
+  test();
+
+  [1, 2, 3, 4].forEach(function (a) {
+    console.log(a);
+  });
+
+  [5, 6, 7, 8].forEach((a) => console.log(a));
+
+  document
+    .getElementById("btnTest")
+    .addEventListener("click", (e) => console.log(e));
+
+  var obj = {
+    method: () => {
+      console.log(this);
+    },
+  };
+
+  obj.method();
+</script>
