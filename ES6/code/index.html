@@ -2,27 +2,33 @@
 <button id="btnTest">버튼</button>
 
 <script>
-  var test = () => {
-    console.log(this);
-  };
-
-  test();
-
-  [1, 2, 3, 4].forEach(function (a) {
-    console.log(a);
-  });
-
-  [5, 6, 7, 8].forEach((a) => console.log(a));
-
-  document
-    .getElementById("btnTest")
-    .addEventListener("click", (e) => console.log(e));
-
-  var obj = {
-    method: () => {
-      console.log(this);
+  // 숙제 1
+  var 사람 = {
+    name: "손흥민",
+    sayHi: function () {
+      console.log("안녕 나는 손흥민");
     },
   };
 
-  obj.method();
+  사람.sayHi();
+
+  // 숙제 2
+  var 자료 = {
+    data: [1, 2, 3, 4, 5],
+  };
+
+  자료.전부더하기 = function () {
+    var sum = 0;
+    this.data.forEach((a) => (sum += a));
+    console.log(sum);
+  };
+
+  자료.전부더하기();
+
+  // 숙제 3
+  document.getElementById("btnTest").addEventListener("click", function () {
+    setTimeout(() => {
+      console.log(this.innerHTML);
+    }, 1000);
+  });
 </script>
