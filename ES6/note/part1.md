@@ -11,3 +11,11 @@
   - 해당 내부에서 this 는 내 부모 혹은 상위요소가 this 가된다.
     - 자바와는 다른점 기억해야할 요소.
     - 왜 있는 기능이지?
+
+## this 키워드를 알아보자 2. event listener와 constructor
+
+- js의 constructor 는 function 으로도 만들 수 있다.
+  - 해당 함수 내부에서 this는 생성될 객체 자체가 된다.
+- 이벤트 리스너 안에서 this 는 e.currentTarget 이다.
+  - 이 의미는 지금 이벤트 리스너가 붙은 요소가 this 가 된다는 의미이다.
+- 함수 안에들어가는 함수를 콜백 함수라고 한다.
