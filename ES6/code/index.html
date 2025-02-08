@@ -12,4 +12,18 @@
   var 오브젝트3 = { ...오브젝트1, ...오브젝트2 };
   오브젝트1.a = 10;
   console.log(오브젝트3);
+
+  var person = {
+    인사: function () {
+      console.log(this.이름 + " 안녕하세요");
+    },
+  };
+
+  person.인사();
+
+  var person2 = {
+    이름: "손흥민",
+  };
+
+  person.인사.apply(person2);
 </script>
