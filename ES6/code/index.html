@@ -1,18 +1,11 @@
-<div style="display: none">모달창0</div>
-<div style="display: none">모달창1</div>
-<div style="display: none">모달창2</div>
-
-<button>버튼0</button>
-<button>버튼1</button>
-<button>버튼2</button>
-
 <script>
-  var 버튼들 = document.querySelectorAll("button");
-  var 모달창들 = document.querySelectorAll("div");
+  var 변수 = "손흥민";
+  var 문자 = `안녕하세요 ${변수} 입니다`;
 
-  for (let i = 0; i < 3; i++) {
-    버튼들[i].addEventListener("click", function () {
-      모달창들[i].style.display = "block";
-    });
+  function 해체분석기(문자들, 변수들) {
+    console.log(문자들);
+    console.log(변수들);
   }
+
+  해체분석기`안녕하세요 ${변수} 입니다  ${변수} ${변수}`;
 </script>
