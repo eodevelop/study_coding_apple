@@ -2,33 +2,20 @@
 <button id="btnTest">버튼</button>
 
 <script>
-  // 숙제 1
-  var 사람 = {
-    name: "손흥민",
-    sayHi: function () {
-      console.log("안녕 나는 손흥민");
-    },
-  };
+  // 자바 스크립트의 호이스팅 해석
+  // 이렇게 선언한 경우 자바스크립트는
+  function 함수() {
+    var 이름 = "kim";
+  }
 
-  사람.sayHi();
+  var 나이 = 30;
+  // 아래와 같이 해석한다.
+  // 이 현상을 호이스팅이라고 한다.
+  var 나이;
 
-  // 숙제 2
-  var 자료 = {
-    data: [1, 2, 3, 4, 5],
-  };
+  function 함수() {
+    var 이름 = "kim";
+  }
 
-  자료.전부더하기 = function () {
-    var sum = 0;
-    this.data.forEach((a) => (sum += a));
-    console.log(sum);
-  };
-
-  자료.전부더하기();
-
-  // 숙제 3
-  document.getElementById("btnTest").addEventListener("click", function () {
-    setTimeout(() => {
-      console.log(this.innerHTML);
-    }, 1000);
-  });
+  나이 = 30;
 </script>
