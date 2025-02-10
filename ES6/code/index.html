@@ -1,29 +1,13 @@
 <script>
-  var 문자 = "테스트";
-  console.log(...문자);
+  function add(a = 1, b = 2) {
+    console.log(a + b);
+  }
 
-  var a = [1, 2, 3];
-  var b = [4, 5, 6];
-  var c = [...a, ...b];
-  console.log(c);
+  add(10);
 
-  var 오브젝트1 = { a: 1, b: 2 };
-  var 오브젝트2 = { c: 3, d: 4 };
-  var 오브젝트3 = { ...오브젝트1, ...오브젝트2 };
-  오브젝트1.a = 10;
-  console.log(오브젝트3);
+  function add2(a, b, c) {
+    console.log(arguments);
+  }
 
-  var person = {
-    인사: function () {
-      console.log(this.이름 + " 안녕하세요");
-    },
-  };
-
-  person.인사();
-
-  var person2 = {
-    이름: "손흥민",
-  };
-
-  person.인사.apply(person2);
+  add2(1, 2, 3);
 </script>
