@@ -10,4 +10,16 @@
   }
 
   add2(1, 2, 3);
+
+  function add3(...rest) {
+    console.log(rest);
+  }
+
+  add3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+  function add4(a, b, ...rest) {
+    console.log(rest);
+  }
+
+  add4(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 </script>
