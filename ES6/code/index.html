@@ -1,25 +1,57 @@
 <script>
-  function add(a = 1, b = 2) {
+  var a = [1, 2, 3];
+  var b = "김밥";
+  var c = [...b, ...a];
+  console.log(c);
+
+  var a = [1, 2, 3];
+  var b = ["you", "are"];
+  var c = function (a, b) {
+    console.log([[...a], ...[...b]][1]);
+  };
+  c(a, b);
+
+  function 함수(a = 5, b = a * 2) {
+    console.log(a + b);
+    return 10;
+  }
+  함수(3);
+
+  function 함수(a = 5, b = a * 2) {
     console.log(a + b);
   }
+  함수(undefined, undefined);
 
-  add(10);
-
-  function add2(a, b, c) {
-    console.log(arguments);
+  function 어레이(...rest) {
+    return rest;
   }
 
-  add2(1, 2, 3);
+  var newArray = 어레이(1, 2, 3, 4, 5);
+  console.log(newArray);
 
-  function add3(...rest) {
-    console.log(rest);
+  var numbers = [2, 3, 4, 5, 6, 1, 3, 2, 5, 5, 4, 6, 7];
+  console.log(Math.max(...numbers));
+
+  function 정렬(...rest) {
+    return rest.sort();
   }
 
-  add3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  console.log(정렬(..."bear"));
 
-  function add4(a, b, ...rest) {
-    console.log(rest);
+  // 답안
+  function 정렬(글자) {
+    console.log([...글자].sort());
   }
 
-  add4(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  정렬("bear");
+
+  function countAlphabet(word) {
+    var map = new Map();
+    [...word].forEach((item) => {
+      map.set(item, map.get(item) + 1 || 1);
+    });
+    return map;
+  }
+
+  console.log(countAlphabet("aacbbb"));
 </script>
