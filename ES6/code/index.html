@@ -1,15 +1,12 @@
 <script>
-  var obj = { name: "kim" };
-
-  function changeName(obj) {
-    obj = { name: "park" };
+  function Student(name, age) {
+    this.name = name;
+    this.age = age;
+    this.sayHi = function () {
+      console.log("hi");
+    };
   }
 
-  changeName(obj);
-  console.log(obj);
-
-  var obj2 = { name: "kim" };
-  var obj3 = obj2;
-  obj3 = { name: "park" };
-  console.log(obj2);
+  var student1 = new Student("kim", 20);
+  var student2 = new Student("park", 21);
 </script>
