@@ -2,6 +2,9 @@
   function Student(name, age) {
     this.name = name;
     this.age = age;
+    this.sayHi = function () {
+      console.log("hi");
+    };
   }
 
   Student.sayHi = function () {
@@ -10,4 +13,12 @@
 
   var student1 = new Student("kim", 20);
   console.log(student1.sayHi());
+
+  const GrandParent = {
+    grandMethod: function () {
+      console.log("GrandParent method");
+    },
+  };
+
+  GrandParent.grandMethod();
 </script>
