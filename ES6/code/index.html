@@ -1,14 +1,25 @@
 <script>
-  class 부모 {
-    constructor() {
-      this.name = "kim";
-      this.age = 20;
+  class 할아버지 {
+    constructor(이름) {
+      this.성 = "kim";
+      this.이름 = 이름;
     }
 
     sayHi() {
-      console.log("hi");
+      console.log("하잉");
+      return "인사완료";
     }
   }
 
-  var 자식 = new 부모();
+  class 아버지 extends 할아버지 {
+    constructor() {
+      super("xx");
+      this.성 = "ba";
+      this.이름 = "neo";
+    }
+  }
+
+  var 아버지1 = new 아버지();
+  console.log(아버지1);
+  아버지1.sayHi();
 </script>

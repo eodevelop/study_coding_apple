@@ -64,3 +64,7 @@
 - class 라는 지정어가 js 에도 존재한다.
 - constructor 외부에 함수를 선언할 수 있는데 이걸로 만든 경우 객체의 prototype 에 저장된다.
 - class는 생성시 자식 그자체에 객체가 생성이 아닌 부모가 복사되는 느낌에 가까운듯
+
+## 객체지향5. class를 복사하는 extends / super
+
+- js 에서는 extends 사용 시 바로 this를 사용하지 못하고 constructor 내부에서 super() 를 먼저 사용해서 부모를 생성해야한다.
