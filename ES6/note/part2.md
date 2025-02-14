@@ -52,3 +52,9 @@
 ## constructor, prototype 연습문제 4개
 
 - prototype 에서 this를 쓰더라도 자식 객체를 가르친다.
+
+## (간만에 쉬운거) ES5방식으로 쉽게 구현하는 상속기능
+
+- ES6 에는 여러가지 상속 방법이 존재한다.
+- Object.create(프로토타입object);
+  - 원본.ptrototype = 넣어줄 값 이렇게 넣는것과 같은 기능을 한다.
