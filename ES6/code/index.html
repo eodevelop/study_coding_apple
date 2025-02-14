@@ -1,4 +1,14 @@
 <script>
-  var 부모 = { name: "kim", age: 50 };
-  var 자식 = Object.create(부모);
+  class 부모 {
+    constructor() {
+      this.name = "kim";
+      this.age = 20;
+    }
+
+    sayHi() {
+      console.log("hi");
+    }
+  }
+
+  var 자식 = new 부모();
 </script>
