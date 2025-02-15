@@ -1,6 +1,14 @@
 <script type="module">
-  import { a } from "./library.js";
-  console.log(a);
+  function fun1(fun) {
+    fun();
+  }
 
-  var test = require("./library.js");
+  function fun2() {
+    console.log("test");
+  }
+
+  // fun1();
+  // fun2();
+  // 원하는 순서대로 동작 안할 가능성 높음
+  fun1(fun2);
 </script>
