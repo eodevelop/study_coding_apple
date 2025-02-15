@@ -1,20 +1,6 @@
-<script>
-  var arr = [2, 3, 4];
+<script type="module">
+  import { a } from "./library.js";
+  console.log(a);
 
-  var [a, b, c] = arr;
-
-  var [a, b, c = 10] = arr;
-
-  console.log(a, b, c);
-
-  var obj = { name: "kim", age: 30 };
-  var { name, age } = obj;
-  var { age } = obj;
-
-  console.log(age);
-
-  var name = "kim";
-  var age = 10;
-  var obj = { name: name, age: age };
-  var obj = { name, age };
+  var test = require("./library.js");
 </script>

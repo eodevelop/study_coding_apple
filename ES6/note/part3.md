@@ -25,3 +25,19 @@ function method({ name, age }) {
 method(obj); // 이런 문법도 가능해짐
 method({ name: "aaa", age: 12 });
 ```
+
+## import / export 를 이용한 파일간 모듈식 개발
+
+- script 의 타입을 module 로 선언하면 import 사용이 가능해진다.
+  - es6 부터 지원
+- export 명령어를 통해서 내보낼 객체 지정 가능.
+  - export default 라고 쓸수 있는데 이때는 import 에서 자유롭게 alias 가 가능하다
+  - 여러개의 객체를 내보내고 싶을때는 default 를 쓰진 못하고 export {a,b} 와 같은 식으로 해줘야 한다.
+    - import 쪽에서도 마찬가지로 {} 를 사용후 가져와야 한다.
+  - export default 와 export {} 를 동시에 사용도 가능하다.
+    - import alias, {} from 'path' 와 같은 방식으로 사용하면 된다.
+  - {} 로 감싼 애들은 alias 를 할때 as 를 붙혀야 한다.
+  - 와일드카드(\*) 도 사용 가능하지만 as 를 써서 별명을 붙혀줘야한다.
+    - default 한 내용은 와일드카드 사용 불가능 하며 직접 가져와야한다.
+- var test = require("./library.js"); 와 같은 옛날 방식도 있다.
+- 가장 호환성 좋고 일반적인 방법은 <script> 에 src 로 불러오느 방식이 가장 좋다.
