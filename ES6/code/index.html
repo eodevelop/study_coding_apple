@@ -1,23 +1,85 @@
 <script>
-  var person = {
-    name: "kim",
-    age: 30,
-    setName(name) {
-      this.name = name;
-    },
-    set setAge(age) {
-      this.age = age;
-    },
+  // 연습문제 1
+  class Dog {
+    constructor(type, color) {
+      this.type = type;
+      this.color = color;
+      this.say = function () {
+        console.log("왈!");
+      };
+    }
+  }
 
-    get getAge() {
-      return this.age;
+  var 강아지1 = new Dog("말티즈", "white");
+  var 강아지2 = new Dog("진돗개", "brown");
+
+  console.log(강아지1);
+  console.log(강아지2);
+
+  // 연습문제 2
+  class Cat extends Dog {
+    constructor(type, color, age) {
+      super(type, color);
+      this.age = age;
+
+      this.addAge = function () {
+        this.age += 1;
+      };
+    }
+  }
+
+  var cat1 = new Cat("코숏", "white", 5);
+  console.log(cat1);
+
+  // 연습문제 3
+  try {
+    강아지1.addAge();
+  } catch (e) {}
+  cat1.addAge();
+
+  // 연습문제 4
+  class Unit {
+    constructor() {
+      this.power = 5;
+      this.stamina = 100;
+    }
+
+    get battlePoint() {
+      var battlePoint = this.power + this.stamina;
+      console.log(battlePoint);
+      return battlePoint;
+    }
+
+    set heal(heal) {
+      this.stamina += heal;
+    }
+  }
+
+  var unit = new Unit();
+  unit.battlePoint;
+  unit.heal = 50;
+
+  console.log(unit);
+
+  // 연습 문제 5
+  var data = {
+    odd: [],
+    even: [],
+
+    set addData(number) {
+      if (number % 2 === 0) {
+        this.even.push(number);
+      } else {
+        this.odd.push(number);
+      }
     },
   };
 
-  person.setName("test");
-  person.setAge = 11;
+  data.addData = 1;
+  data.addData = 2;
+  data.addData = 3;
+  data.addData = 4;
+  data.addData = 5;
 
-  console.log(person);
-
-  console.log(person.getAge);
+  console.log(data);
 </script>
