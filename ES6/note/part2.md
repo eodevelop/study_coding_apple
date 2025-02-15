@@ -68,3 +68,5 @@
 ## 객체지향5. class를 복사하는 extends / super
 
 - js 에서는 extends 사용 시 바로 this를 사용하지 못하고 constructor 내부에서 super() 를 먼저 사용해서 부모를 생성해야한다.
+
+## getter, setter 대체 왜 쓰는지 알아보기

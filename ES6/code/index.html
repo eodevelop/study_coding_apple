@@ -1,25 +1,23 @@
 <script>
-  class 할아버지 {
-    constructor(이름) {
-      this.성 = "kim";
-      this.이름 = 이름;
-    }
+  var person = {
+    name: "kim",
+    age: 30,
+    setName(name) {
+      this.name = name;
+    },
+    set setAge(age) {
+      this.age = age;
+    },
 
-    sayHi() {
-      console.log("하잉");
-      return "인사완료";
-    }
-  }
+    get getAge() {
+      return this.age;
+    },
+  };
 
-  class 아버지 extends 할아버지 {
-    constructor() {
-      super("xx");
-      this.성 = "ba";
-      this.이름 = "neo";
-    }
-  }
+  person.setName("test");
+  person.setAge = 11;
 
-  var 아버지1 = new 아버지();
-  console.log(아버지1);
-  아버지1.sayHi();
+  console.log(person);
+
+  console.log(person.getAge);
 </script>
