@@ -1,14 +1,15 @@
 <script type="module">
-  function fun1(fun) {
-    fun();
-  }
+  var 프로미스 = new Promise(function (resolve, reject) {
+    var 어려운연산 = 1 + 1;
+    resolve(어려운연산);
+  });
 
-  function fun2() {
-    console.log("test");
-  }
-
-  // fun1();
-  // fun2();
-  // 원하는 순서대로 동작 안할 가능성 높음
-  fun1(fun2);
+  프로미스
+    .then(function (결과) {
+      // 결과 == 어려운연산
+      console.log(결과 + "성공했어요");
+    })
+    .catch(function () {
+      console.log("실패했어요");
+    });
 </script>
