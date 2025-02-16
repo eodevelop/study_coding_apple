@@ -78,3 +78,10 @@ method({ name: "aaa", age: 12 });
     - 내부에서 비동기적 처리를 도와주는 기능들을 쓸 수 는 있다.
 
 ## ES6 Promise 간단 연습문제 & 해설
+
+## Promise 어려워서 싫으면 async/await을사용합시다
+
+- es8 부터 나온 async/await 문법
+- async 를 function 앞에 붙이면 항상 해당 함수 이후에 Promise 가 남는다.
+- await 은 항상 async 안에서만 쓸 수 있다.
+- 실패를 다루는 문법은 자바 처럼 try catch 를 사용한다.

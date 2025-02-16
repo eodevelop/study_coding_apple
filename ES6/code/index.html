@@ -7,72 +7,20 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
   <body>
-    <img id="test" src="https://codingapple1.github.io/kona.jpg" />
-    <script type="module">
-      var 프로미스 = new Promise(function (resolve, reject) {
-        var 어려운연산 = 1 + 1;
-        resolve(어려운연산);
-      });
-
-      프로미스
-        .then(function (결과) {
-          // 결과 == 어려운연산
-          console.log("성공했어요");
-        })
-        .catch(function () {
-          console.log("실패했어요");
-        });
-
-      // 문제 1 <img> 이미지 로딩 성공시 특정 코드를 실행하고 싶습니다.
-      var imageLoad = new Promise(function (resolve, reject) {
-        var testImg = document.getElementById("test");
-        testImg.addEventListener("load", function () {
-          resolve();
-        });
-        testImg.addEventListener("error", function () {
-          reject();
-        });
-      });
-
-      imageLoad
-        .then(function () {
-          console.log("성공");
-        })
-        .catch(function () {
-          console.log("실패");
-        });
-
-      // 문제 2
-      $.get("https://codingapple1.github.io/hello.txt").done(function (result) {
-        console.log(result);
-      });
-
-      // 문제 3
-      var ajaxPromis = new Promise(function (resolve, reject) {
-        $.get("https://codingapple1.github.io/hello.txt").done(function (
-          result
-        ) {
-          resolve(result);
-        });
-      });
-
-      ajaxPromis
-        .then(function (result) {
-          console.log(result);
-
-          var promise2 = new Promise(function (성공, 실패) {
-            $.get("https://codingapple1.github.io/hello2.txt").done(function (
-              result
-            ) {
-              성공(result);
-            });
+    <button id="btn">성공</button>
+    <script>
+      async function 더하기() {
+        var promise = new Promise(function (성공, 실패) {
+          document.getElementById("btn").addEventListener("click", function () {
+            성공("성공했어요");
           });
-
-          return promise2;
-        })
-        .then(function (result) {
-          console.log(result);
         });
+
+        var value = await promise;
+        console.log(value);
+      }
+
+      더하기();
     </script>
   </body>
 </html>
