@@ -9,18 +9,21 @@
   <body>
     <button id="btn">성공</button>
     <script>
-      async function 더하기() {
-        var promise = new Promise(function (성공, 실패) {
-          document.getElementById("btn").addEventListener("click", function () {
-            성공("성공했어요");
-          });
-        });
+      var 오브젝트 = { name: "kim", age: 30, fun: function () {} };
+      Object.getOwnPropertyDescriptor(오브젝트, "name");
 
-        var value = await promise;
-        console.log(value);
+      for (var key in 오브젝트) {
+        if (오브젝트.hasOwnProperty(key)) {
+          console.log(오브젝트[key]);
+        }
       }
 
-      더하기();
+      var 배열 = [1, 2, 3];
+      for (var key of 배열) {
+        console.log(key);
+      }
+
+      배열[Symbol.iterator];
     </script>
   </body>
 </html>

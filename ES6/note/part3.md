@@ -85,3 +85,15 @@ method({ name: "aaa", age: 12 });
 - async 를 function 앞에 붙이면 항상 해당 함수 이후에 Promise 가 남는다.
 - await 은 항상 async 안에서만 쓸 수 있다.
 - 실패를 다루는 문법은 자바 처럼 try catch 를 사용한다.
+
+## for in / for of 반복문과 enumerable, iterable 속성
+
+- for in 반복문은 object 에 있는 파라미터를 하나씩 가져오고 싶을때 쓴다
+  - enumerable 한 것만 반복해준다.
+    - enumerable 이란 getOwnPropertyDescriptor 로 확인 시 셀수 있는 변수인지 설정되는 내용이다.
+  - 부모의 prototype 도 반복해준다.
+    - 부모까지 쓸일은 잘 없기 때문에 obj.hasOwnProperty(key) 로 검사해서 사용하는것도 방법이다.
+- for of 반복문은 array 에 있는 인덱스를 하나씩 가져오고 싶을때 쓴다.
+  - array 뿐만 아니라 문자, arguments, NodeList, Map, Set 등도 가능
+  - 즉 iterable 한 자료형에만 가능하다 이 또한 위 처럼 자바스크립트에서 몰래 숨겨둔 속성이다.
+    - 배열[Symbol.iterator]; 이런식으로 접근 시 접근 가능한 애들이 of 로 반복할 수 있는 애들이다.
