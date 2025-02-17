@@ -97,3 +97,31 @@ method({ name: "aaa", age: 12 });
   - array 뿐만 아니라 문자, arguments, NodeList, Map, Set 등도 가능
   - 즉 iterable 한 자료형에만 가능하다 이 또한 위 처럼 자바스크립트에서 몰래 숨겨둔 속성이다.
     - 배열[Symbol.iterator]; 이런식으로 접근 시 접근 가능한 애들이 of 로 반복할 수 있는 애들이다.
+
+## Symbol 자료형은 쓸모없어보이는데 왜 있는거죠
+
+- 별로 쓸데는 없다.
+
+```javascript
+var 심볼 = Symbol("설명");
+```
+
+- 위 처럼 만들 수 있다.
+- 오브젝트의 키 값으로 사용 가능
+  - 숨기고 싶은 내용의 key 값으로 사용
+
+```javascript
+var 심볼 = Symbol("설명");
+var person = { name: "kim" };
+var person = { name: "kim", [심볼]: 100 }; // 이런식으로도 가능하다.
+person[심볼] = 100;
+```
+
+- 위처럼 적으면 심볼 내용은 for in 반복문이 돌 떄 나오지 않는다.
+  - enumerable 하지 않다고도 한다.
+- 심볼의 특징
+  1. 설명이 같다고 해도 같은 Symbol 이 아니다.
+  - 만들때마다 유니크함
+  2. 전역 심볼을 만들려면 Symbol.for() 로 만들면 같은 설명이라면 싱글톤으로 가져오게 된다.
+  3. 어레이에 Symbol.iterator 인덱스로 접근하면 미리 넣어둔 기본 심볼을 확인할 수 있다.
+  - 해당 내용을 통해 for of 나 spread 연산자를 사용할때 다음 연산으로 이동 가능하다.

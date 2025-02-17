@@ -7,23 +7,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
   <body>
-    <button id="btn">성공</button>
     <script>
-      var 오브젝트 = { name: "kim", age: 30, fun: function () {} };
-      Object.getOwnPropertyDescriptor(오브젝트, "name");
-
-      for (var key in 오브젝트) {
-        if (오브젝트.hasOwnProperty(key)) {
-          console.log(오브젝트[key]);
-        }
-      }
-
-      var 배열 = [1, 2, 3];
-      for (var key of 배열) {
-        console.log(key);
-      }
-
-      배열[Symbol.iterator];
+      var 심볼 = Symbol("설명");
+      var person = { name: "kim", [심볼]: 100 };
+      person[심볼] = 100;
     </script>
   </body>
 </html>
