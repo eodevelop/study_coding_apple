@@ -8,9 +8,13 @@
   </head>
   <body>
     <script>
-      var 심볼 = Symbol("설명");
-      var person = { name: "kim", [심볼]: 100 };
-      person[심볼] = 100;
+      var map = new Map();
+      map.set("name", "kim");
+
+      var map2 = new Map([
+        ["name", "kim"],
+        ["age", 12],
+      ]);
     </script>
   </body>
 </html>
