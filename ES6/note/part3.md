@@ -40,7 +40,7 @@ method({ name: "aaa", age: 12 });
   - 와일드카드(\*) 도 사용 가능하지만 as 를 써서 별명을 붙혀줘야한다.
     - default 한 내용은 와일드카드 사용 불가능 하며 직접 가져와야한다.
 - var test = require("./library.js"); 와 같은 옛날 방식도 있다.
-- 가장 호환성 좋고 일반적인 방법은 <script> 에 src 로 불러오느 방식이 가장 좋다.
+- 가장 호환성 좋고 일반적인 방법은 &lt;script&gt; 에 src 로 불러오느 방식이 가장 좋다.
 
 ## Stack, Queue를 이용한 웹브라우저 동작원리
 
@@ -147,3 +147,33 @@ var map2 = new Map([
   - 중복을 넣으면 자동으로 사라진다.
   - 초기화는 map 과 유사하지만 1차원 배열로 넣어주면 된다.
   - array로 바꾸고 싶으면 [... set] 처럼 쓰면된다.
+
+## Web Components : 커스텀 HTML 태그 만들기
+
+- Web Components 문법을 쓰면 커스텀 컴포넌트를 만들 수 있다.
+  - js 자체 기능은 아니며 브라우저에서 제공하는 기능이다.
+
+```javascript
+class 클래스 extends HTMLElement {
+  connectedCallback() {
+    let name = this.getAttribute("name");
+    this.innerHTML = `<label>${name}안녕하세요</label><input>`;
+  }
+
+  static get observedAttributes() {
+    return ["name"];
+  }
+
+  attributeChangedCallback() {
+    (attribute 변경시 실행할 코드)
+  }
+}
+
+customElements.define("custom-input", 클래스);
+```
+
+- 위 처럼 적은 후 아래처럼 HTML 에서 사용 가능
+
+```HTML
+<custom-input name="비번"></custom-input>
+```

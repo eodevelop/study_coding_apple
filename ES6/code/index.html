@@ -7,14 +7,24 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
   <body>
+    <custom-input name="비번"></custom-input>
     <script>
-      var map = new Map();
-      map.set("name", "kim");
+      class 클래스 extends HTMLElement {
+        connectedCallback() {
+          let name = this.getAttribute("name");
+          this.innerHTML = `<label>${name}안녕하세요</label><input>`;
+        }
 
-      var map2 = new Map([
-        ["name", "kim"],
-        ["age", 12],
-      ]);
+        static get observedAttributes() {
+          return ["name"];
+        }
+
+        attributeChangedCallback() {
+          this.innerHTML = `<label>${name}안녕하세요</label><input>`;
+        }
+      }
+
+      customElements.define("custom-input", 클래스);
     </script>
   </body>
 </html>
