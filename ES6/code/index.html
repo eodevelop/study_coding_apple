@@ -7,24 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
   <body>
-    <custom-input name="비번"></custom-input>
+    <div id="mordor"></div>
     <script>
-      class 클래스 extends HTMLElement {
-        connectedCallback() {
-          let name = this.getAttribute("name");
-          this.innerHTML = `<label>${name}안녕하세요</label><input>`;
-        }
-
-        static get observedAttributes() {
-          return ["name"];
-        }
-
-        attributeChangedCallback() {
-          this.innerHTML = `<label>${name}안녕하세요</label><input>`;
-        }
-      }
-
-      customElements.define("custom-input", 클래스);
+      document.querySelector("#mordor").attachShadow({ mode: "open" });
+      document.querySelector("mordor").shadowRoot.innerHTML =
+        "<p>심연에서왔도다</p>";
     </script>
   </body>
 </html>

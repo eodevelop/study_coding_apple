@@ -177,3 +177,19 @@ customElements.define("custom-input", 클래스);
 ```HTML
 <custom-input name="비번"></custom-input>
 ```
+
+## shadow DOM과 template으로 HTML 모듈화하기
+
+- input 태그 안에 숨어있는 요소들을 Shadow DOM 이라고 한다.
+  - 사용자가 이를 이용해서 직접 만들수도 있다.
+  - 딱히 쓸땐 없음
+
+```javascript
+<div class="mordor"></div>
+<script>
+document.querySelector('mordor').attachShadow({mode : 'open'}); // 이걸 해줘야 shadowRoot 가 생긴다.
+document.querySelector('mordor').shadowRoot.innerHTML = '<p>심연에서왔도다</p>'
+</script>
+```
+
+- 그나마 사용할려면 Web Components 사용시 스타일이 다른곳에 영향줄수도 있으니 이를 Shadow dom 에 넣어서 방지 가능하다.
