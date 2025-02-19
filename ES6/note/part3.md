@@ -197,3 +197,7 @@ document.querySelector('mordor').shadowRoot.innerHTML = '<p>심연에서왔도�
 ## class로 만들어보는 간단한 2D 게임 1 (배웠으면 써먹어야하니까)
 
 - canvas 태그는 html 에 그림을 그리는 태그이다.
+
+## class로 만들어보는 간단한 2D 게임 2 (collision detection)
+
+- .foreach 메소드는 내부에 인수를 3개 넣을 수 있는데 item, index, array 순이다
