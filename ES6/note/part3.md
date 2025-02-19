@@ -193,3 +193,7 @@ document.querySelector('mordor').shadowRoot.innerHTML = '<p>심연에서왔도�
 ```
 
 - 그나마 사용할려면 Web Components 사용시 스타일이 다른곳에 영향줄수도 있으니 이를 Shadow dom 에 넣어서 방지 가능하다.
+
+## class로 만들어보는 간단한 2D 게임 1 (배웠으면 써먹어야하니까)
+
+- canvas 태그는 html 에 그림을 그리는 태그이다.
