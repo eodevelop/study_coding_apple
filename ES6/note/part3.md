@@ -201,3 +201,9 @@ document.querySelector('mordor').shadowRoot.innerHTML = '<p>심연에서왔도�
 ## class로 만들어보는 간단한 2D 게임 2 (collision detection)
 
 - .foreach 메소드는 내부에 인수를 3개 넣을 수 있는데 item, index, array 순이다
+
+## ?. / ?? 연산자 (optional chaining)
+
+- ?. 를하면 왼쪽의 객체가 null 이나 undefined 라면 점 안찍고 undefined 를 남겨준다.
+- ?? 문법은 obj(undefined 나 null) ?? "대신 출력"
+  - 위 처럼 obj 가 null 이면 오른쪽의 데이터를 대신 출력해준다.
