@@ -21,3 +21,5 @@
   - vue 에서 사용하는 경우
 
   1. vue add typescript
+
+## Typescript 컴파일시 세부설정 (tsconfig.json)
