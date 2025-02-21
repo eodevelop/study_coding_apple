@@ -23,3 +23,15 @@
   1. vue add typescript
 
 ## Typescript 컴파일시 세부설정 (tsconfig.json)
+
+## 타입스크립트 기본 타입 정리 (primitive types)
+
+- 자주쓰는 타입은 string, number, boolean 이런게 있다.
+- array, object 등에도 내부에서 타입 지정이 가능하다.
+
+```typescript
+let arr: string[] = ["test", "code"];
+let obj: { name: string; age: number } = { name: "test", age: 10 };
+```
+
+- typescript 는 타입을 지정해주지 않더라도 초기 값으로 타입을 자동으로 지정해준다.
