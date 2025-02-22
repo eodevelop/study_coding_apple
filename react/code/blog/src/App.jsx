@@ -24,6 +24,15 @@ function App() {
       >
         여자 코트로 변경
       </button>
+      <button
+        onClick={() => {
+          let copy = [...글제목];
+          copy.sort();
+          set글제목(copy);
+        }}
+      >
+        가나다순 정렬
+      </button>
       <div className="list">
         <h4>
           {글제목[0]}
