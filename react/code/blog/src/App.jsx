@@ -15,6 +15,15 @@ function App() {
       <div className="black-nav">
         <h4>ReactBlog</h4>
       </div>
+      <button
+        onClick={() => {
+          let copy = [...글제목];
+          copy[0] = "여자 코트 추천";
+          set글제목(copy);
+        }}
+      >
+        여자 코트로 변경
+      </button>
       <div className="list">
         <h4>
           {글제목[0]}
