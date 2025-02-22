@@ -8,6 +8,7 @@ function App() {
     "강남 우동 맛집",
     "파이썬 독학",
   ]);
+  let [likeCount, setLikeCount] = useState(0);
 
   return (
     <div className="App">
@@ -15,7 +16,17 @@ function App() {
         <h4>ReactBlog</h4>
       </div>
       <div className="list">
-        <h4>{글제목[0]}</h4>
+        <h4>
+          {글제목[0]}
+          <span
+            onClick={() => {
+              setLikeCount(likeCount + 1);
+            }}
+          >
+            👍
+          </span>{" "}
+          {likeCount}
+        </h4>
         <p>2월 17일 발행</p>
       </div>
       <div className="list">
