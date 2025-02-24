@@ -40,8 +40,8 @@ function App() {
   };
 
   const handleAddPost = () => {
-    set글제목([...글제목, inputValue]);
-    setLikeCount([...likeCount, 0]);
+    set글제목([inputValue, ...글제목]);
+    setLikeCount([0, ...likeCount]);
   };
 
   return (
