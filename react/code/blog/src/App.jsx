@@ -10,6 +10,10 @@ function App() {
   let [likeCount, setLikeCount] = useState(0);
   let [modal, setModal] = useState(false);
 
+  function showModal() {
+    setModal(true);
+  }
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -52,11 +56,17 @@ function App() {
         <p>2월 17일 발행</p>
       </div>
       <div className="list">
-        <h4>{글제목[2]}</h4>
+        <h4
+          onClick={() => {
+            setModal(true);
+          }}
+        >
+          {글제목[2]}
+        </h4>
         <p>2월 17일 발행</p>
       </div>
 
-      <Modal />
+      {modal ? <Modal /> : null}
     </div>
   );
 }
