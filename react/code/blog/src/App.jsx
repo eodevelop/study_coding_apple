@@ -18,6 +18,32 @@ function App() {
     set글제목(copy);
   }
 
+  const handleTitleClick = (item) => {
+    setTitle(item);
+    setModal(true);
+  };
+
+  const handleLikeClick = (index) => {
+    let copy = [...likeCount];
+    copy[index] = copy[index] + 1;
+    setLikeCount(copy);
+  };
+
+  const handleDelete = (index) => {
+    let copy = [...글제목];
+    copy.splice(index, 1);
+    set글제목(copy);
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleAddPost = () => {
+    set글제목([...글제목, inputValue]);
+    setLikeCount([...likeCount, 0]);
+  };
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -26,33 +52,18 @@ function App() {
       {글제목.map(function (item, index) {
         return (
           <div className="list" key={item}>
-            <h4
-              onClick={() => {
-                setTitle(item);
-                setModal(true);
-              }}
-            >
+            <h4 onClick={() => handleTitleClick(item)}>
               {item}
-              <span
-                onClick={() => {
-                  let copy = [...likeCount];
-                  copy[index] = copy[index] + 1;
-                  setLikeCount(copy);
-                }}
-              >
-                👍
-              </span>
+              <span onClick={() => handleLikeClick(index)}>👍</span>
               {likeCount[index]}
             </h4>
             <p>2월 17일 발행</p>
+            <button onClick={() => handleDelete(index)}>삭제</button>
           </div>
         );
       })}
-      <input
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
-      />
+      <input onChange={handleInputChange} />
+      <button onClick={handleAddPost}>글 추가</button>
       {modal ? <Modal title={title} changeFunction={change글제목} /> : null}
     </div>
   );
