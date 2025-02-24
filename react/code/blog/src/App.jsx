@@ -7,12 +7,8 @@ function App() {
     "강남 우동 맛집",
     "파이썬 독학",
   ]);
-  let [likeCount, setLikeCount] = useState(0);
+  let [likeCount, setLikeCount] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
-
-  function showModal() {
-    setModal(true);
-  }
 
   return (
     <div className="App">
@@ -37,35 +33,26 @@ function App() {
       >
         가나다순 정렬
       </button>
-      <div className="list">
-        <h4>
-          {글제목[0]}
-          <span
-            onClick={() => {
-              setLikeCount(likeCount + 1);
-            }}
-          >
-            👍
-          </span>{" "}
-          {likeCount}
-        </h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{글제목[1]}</h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4
-          onClick={() => {
-            setModal(true);
-          }}
-        >
-          {글제목[2]}
-        </h4>
-        <p>2월 17일 발행</p>
-      </div>
-
+      {글제목.map(function (item, index) {
+        return (
+          <div className="list" key={item}>
+            <h4>
+              {item}{" "}
+              <span
+                onClick={() => {
+                  let copy = [...likeCount];
+                  copy[index] = copy[index] + 1;
+                  setLikeCount(copy);
+                }}
+              >
+                👍
+              </span>{" "}
+              {likeCount[index]}
+            </h4>
+            <p>2월 17일 발행</p>
+          </div>
+        );
+      })}
       {modal ? <Modal /> : null}
     </div>
   );
