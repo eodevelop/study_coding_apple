@@ -10,20 +10,17 @@ function App() {
   let [likeCount, setLikeCount] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
 
+  function change글제목() {
+    let copy = [...글제목];
+    copy[0] = "여자 코트 추천";
+    set글제목(copy);
+  }
+
   return (
     <div className="App">
       <div className="black-nav">
         <h4>ReactBlog</h4>
       </div>
-      <button
-        onClick={() => {
-          let copy = [...글제목];
-          copy[0] = "여자 코트 추천";
-          set글제목(copy);
-        }}
-      >
-        여자 코트로 변경
-      </button>
       <button
         onClick={() => {
           let copy = [...글제목];
@@ -36,7 +33,11 @@ function App() {
       {글제목.map(function (item, index) {
         return (
           <div className="list" key={item}>
-            <h4>
+            <h4
+              onClick={() => {
+                setModal(true);
+              }}
+            >
               {item}{" "}
               <span
                 onClick={() => {
@@ -53,17 +54,24 @@ function App() {
           </div>
         );
       })}
-      {modal ? <Modal /> : null}
+      {modal ? (
+        <Modal
+          글제목={글제목}
+          color={"skyblue"}
+          changeFunction={change글제목}
+        />
+      ) : null}
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
-    <div className="modal">
-      <h4>제목</h4>
+    <div className="modal" style={{ background: props.color }}>
+      <h4>{props.글제목[0]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
+      <button onClick={props.changeFunction}>글수정</button>
     </div>
   );
 }
