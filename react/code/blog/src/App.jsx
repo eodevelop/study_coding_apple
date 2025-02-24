@@ -10,6 +10,7 @@ function App() {
   let [likeCount, setLikeCount] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState("");
+  let [inputValue, setInputValue] = useState("");
 
   function change글제목() {
     let copy = [...글제목];
@@ -27,7 +28,6 @@ function App() {
           <div className="list" key={item}>
             <h4
               onClick={() => {
-                console.log(item);
                 setTitle(item);
                 setModal(true);
               }}
@@ -48,6 +48,11 @@ function App() {
           </div>
         );
       })}
+      <input
+        onChange={(e) => {
+          setInputValue(e.target.value);
+        }}
+      />
       {modal ? <Modal title={title} changeFunction={change글제목} /> : null}
     </div>
   );
