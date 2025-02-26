@@ -99,3 +99,35 @@
 - 이벤트가 상위 이벤트로 퍼지는 이벤트 버블링을 막으려면 e.stopPropagation(); 을 사용하면 막을 수 있다.
   - js 문법이다.
 - 제일 처음 값은 로그로 안뜨고 다음값부터 뜨거나할수도 있는데 state 의 변경에는 시간이 좀 걸리기 때문이다.
+
+## class를 이용한 옛날 React 문법
+
+- 요즘은 다 function 만 쓴다.
+  - 옛날 코드 볼때 대비용으로 참고
+
+```javascript
+class Modal2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "kim",
+      age: 20,
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        안녕{this.state.age}
+        <button
+          onClick={() => {
+            this.setState({ age: 21 });
+          }}
+        >
+          버튼
+        </button>
+      </div>
+    );
+  }
+}
+```
