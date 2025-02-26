@@ -131,3 +131,20 @@ class Modal2 extends React.Component {
   }
 }
 ```
+
+## 만든 리액트 사이트 build & Github Pages로 배포해보기
+
+1. npm run build 로 빌드
+
+   - dist 혹은 build 라는 폴더에 index.html 파일이 생성된다.
+
+2. 배포전 체크할 사항
+
+   - 미리보기 띄워볼때 콘솔창, 터미널에 에러가 안나야함
+   - 사이트 배포시 하위 경로에 배포하고싶으면 별도로 설정이 필요하다
+     - package.json 파일안에 "homepage": "/blog", 와 같이 넣어주면 http://내url/blog/ 처럼 나오게된다.
+     - vite인 경우 defineConfig 내부에 base : '/blog' 처럼 넣어주면 된다.
+
+3. 깃허브에서 배포 시 "내깃허브 아이디.github.io" 로 레파지토리 생성
+4. 이후 레파지토리안에서 dist 내부 파일 드래그앤 드롭 후 커밋
+5. "내아이디.github.io" 로 접속하면 내 사이트가 보인다.
