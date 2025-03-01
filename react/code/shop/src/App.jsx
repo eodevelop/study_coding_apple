@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
 
 function App() {
+  let [shoes] = useState();
   return (
     <div className="App">
       <Navbar bg="dark" data-bs-theme="dark">
