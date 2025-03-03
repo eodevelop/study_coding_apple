@@ -19,16 +19,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("안녕"),
         ),
-        body: Container(),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Icon(Icons.phone),
-              Icon(Icons.message),
-              Icon(Icons.contact_page)
-            ],
-          ),
+        body: Container(
+          width: double.infinity, height: 50, color: Colors.blue,
         ),
       )
     );

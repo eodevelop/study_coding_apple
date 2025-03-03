@@ -32,3 +32,9 @@ rules:
 - Scaffold는 앱을 상중 하로 나눠주는 위젯
 - 여러 위젯을 가로로 배치할떄는 Row(childer:[]) 을 사용한다.
   - 세로는 Column 으로 작업해주면된다.
+
+## Flutter에서 박스디자인하는 법 (margin, padding, 정렬)
+
+- width, height, Child 정도만 제어하면 된다면 Container 대신 SizedBox 를 쓰는게 좋음
+- 기본적인 디자인 속성 이름들은 css 와 비슷
+- 여러 잡다한 내용들은 decoration 에서 제어 가능하다.
