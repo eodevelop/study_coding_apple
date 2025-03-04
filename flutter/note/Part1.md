@@ -113,3 +113,13 @@ var a = SizedBox(
   - stful 로 스니펫 있음
   - 기존 상속을 StatefulWidget 로 컨버터 해서도 사용 가능하다.
   - StatefulWidget 내부에서 setState(() {}) 를 만들어서 내부에서 변경시 값이 화면에 반영된다.
+
+## Dialog/모달창 만드는 법과 context가 뭔지
+
+- showDialog 메소드 사용 후 builder 속성의 return 에서 디자인 해주면 된다.
+  - 일반적으로 Dialog 위젯을 사용해서 디자인
+  - MaterialApp 을 밖에 내보내줘야 정상적으로 Dialog 가 출력된다.
+- 위 내용의 원리
+  - context 는 커스텀 위젯을 만들때마다 강제로 하나씩 생성된다.
+    - 부모 위젯이 누구인지를 담고 있는 변수이다.
+  - showDialog의 경우 부모에 MaterialApp 가 있어야 정상적으로 작동한다. 

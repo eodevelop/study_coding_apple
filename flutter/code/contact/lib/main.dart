@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+      MaterialApp(
+          theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.grey,
+            ),
+          ),
+          home: MyApp()
+      )
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -12,24 +21,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 1;
   var name = ['김영숙', '홍길동', '피자집'];
   var like = [0, 0, 0];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.grey,
-        ),
-      ),
-      home: Scaffold(
+    return Scaffold(
         floatingActionButton: FloatingActionButton(
-          child: Text(a.toString()),
+          child: Text("Dialog"),
           onPressed: (){
-            setState(() {
-              a++;
+            showDialog(context: context, builder: (context){
+              return Dialog(child: Text('안녕'));
             });
           },
         ),
@@ -45,8 +47,7 @@ class _MyAppState extends State<MyApp> {
                 });}, child: Text('좋아요')),
               );
             })
-      )
-    );
+      );
   }
 }
 
