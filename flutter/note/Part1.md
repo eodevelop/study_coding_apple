@@ -55,3 +55,9 @@ rules:
   1. 원본 디자인 준비
   2. 예시화면에 네모 그리기
   3. 바깥네모부터 하나하나 위젯으로
+
+## Expanded, Flexible & 상품 레이아웃 숙제
+
+- Flexible 을 사용하면 크기글 % 로 줄 수 있게된다.
+  - 내부에 flex 값에 숫자로 값을 넣어주면 된다.
+- Expended 를 사용하면 flex를 1 만큼 가진 Flexible 과 같다.

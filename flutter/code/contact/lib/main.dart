@@ -16,40 +16,34 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("앱임"),
-        ),
-        body: SizedBox(
+        appBar: AppBar(),
+        body: Container(
           height: 150,
-          width: 500,
+          padding: EdgeInsets.all(10),
           child: Row(
             children: [
-              Image.asset(
-                'assets/camera.png',
-                width: 150,
-                height: 150,
-              ),
-              Expanded(  // Column을 Expanded로 감싸기
+              Image.asset('assets/camera.png', width: 150,),
+              Container(
+                width: 300,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("캐논 DSLR 100D (단렌즈, 충전기 16기가 SD 포함)"),
-                    Text("성동구 행당동 끌올 10분전"),
-                    Text("210,000원"),
+                    Text("카메라 팝니다.", style: TextStyle(fontSize: 20),),
+                    Text("금호동 3가"),
+                    Text("7,000원"),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Icon(Icons.favorite_border),
-                        Text("2"),
+                        Icon(Icons.favorite),
+                        Text('4')
                       ],
-                    ),
+                    )
                   ],
                 ),
               )
             ],
-          )
-        ),
+          ),
+        )
       )
     );
   }
