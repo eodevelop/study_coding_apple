@@ -14,6 +14,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var a = 1;
   var name = ['김영숙', '홍길동', '피자집'];
+  var like = [0, 0, 0];
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +38,11 @@ class _MyAppState extends State<MyApp> {
             itemCount: 3,
             itemBuilder: (c, i){
               return ListTile(
-                leading: Image.asset('profile.png'),
+                leading: Text(like[i].toString()),
                 title: Text(name[i]),
-                // trailing: ,
+                trailing: TextButton(onPressed: (){setState(() {
+                  like[i]++;
+                });}, child: Text('좋아요')),
               );
             })
       )
