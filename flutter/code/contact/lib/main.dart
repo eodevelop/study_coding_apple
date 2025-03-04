@@ -21,8 +21,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var a = 3;
   var name = ['김영숙', '홍길동', '피자집'];
   var like = [0, 0, 0];
+
+  void incrementA () {
+    a++;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,33 +35,10 @@ class _MyAppState extends State<MyApp> {
         floatingActionButton: FloatingActionButton(
           child: Text("Dialog"),
           onPressed: (){
-            showDialog(context: context, builder: (context){
-              var inputData = TextEditingController();  // 입력값을 저장할 컨트롤러
-              return AlertDialog(
-                title: Text('연락처 등록'),
-                content: TextField(
-                  controller: inputData,
-                  decoration: InputDecoration(
-                    hintText: '이름을 입력하세요'
-                  ),
-                ),
-                actions: [
-                  TextButton(
-                    child: Text('취소'),
-                    onPressed: (){ 
-                      Navigator.pop(context);
-                    },
-                  ),
-                  TextButton(
-                    child: Text('확인'),
-                    onPressed: (){
-                      Navigator.pop(context);
-                      // 여기서 입력된 데이터(inputData.text) 처리 가능
-                    },
-                  ),
-                ],
-              );
-            });
+            showDialog(
+              context: context, 
+              builder: (context) => CustomDialog(state: a)
+            );
           },
         ),
         appBar: AppBar(title: Text("연락처앱"),),
@@ -72,6 +54,40 @@ class _MyAppState extends State<MyApp> {
               );
             })
       );
+  }
+}
+
+class CustomDialog extends StatelessWidget {
+  CustomDialog({super.key, this.state});
+  final state;
+  final inputData = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('연락처 등록'),
+      content: TextField(
+        controller: inputData,
+        decoration: InputDecoration(
+          hintText: '이름을 입력하세요'
+        ),
+      ),
+      actions: [
+        TextButton(
+          child: Text('취소'),
+          onPressed: (){ 
+            Navigator.pop(context);
+          },
+        ),
+        TextButton(
+          child: Text('확인'),
+          onPressed: (){
+            Navigator.pop(context);
+            // 여기서 입력된 데이터(inputData.text) 처리 가능
+          },
+        ),
+      ],
+    );
   }
 }
 
