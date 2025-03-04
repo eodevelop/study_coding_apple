@@ -104,3 +104,12 @@ var a = SizedBox(
   - itemBuilder 에는 context, index 라는 파라미터가 들어가야 한다.
 - 메소드 내부에 print 메소드 사용시 콘솔창에 출력 가능
 - 변수 선언 후 화면에 표시해줄때는 재렌더링 해줘야 한다.
+
+## StatefulWidget 만들기
+
+- 재렌더링 방법
+  - state를 가져다 쓰면 된다.
+  - state를 사용하기 위해선 StatefulWidget 를 상속받은 클래스를 만들어야 한다.
+  - stful 로 스니펫 있음
+  - 기존 상속을 StatefulWidget 로 컨버터 해서도 사용 가능하다.
+  - StatefulWidget 내부에서 setState(() {}) 를 만들어서 내부에서 변경시 값이 화면에 반영된다.
