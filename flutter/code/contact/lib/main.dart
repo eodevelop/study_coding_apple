@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
           onPressed: (){
             showDialog(
               context: context, 
-              builder: (context) => CustomDialog(state: a)
+              builder: (context) => CustomDialog(state: a, incrementA:incrementA)
             );
           },
         ),
@@ -58,8 +58,9 @@ class _MyAppState extends State<MyApp> {
 }
 
 class CustomDialog extends StatelessWidget {
-  CustomDialog({super.key, this.state});
+  CustomDialog({super.key, this.state, this.incrementA});
   final state;
+  final incrementA;
   final inputData = TextEditingController();
 
   @override
@@ -82,8 +83,8 @@ class CustomDialog extends StatelessWidget {
         TextButton(
           child: Text('확인'),
           onPressed: (){
+            incrementA();
             Navigator.pop(context);
-            // 여기서 입력된 데이터(inputData.text) 처리 가능
           },
         ),
       ],
