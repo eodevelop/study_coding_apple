@@ -12,15 +12,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.blue, // 앱 전체의 AppBar 배경색을 보라색으로 설정
+          backgroundColor: Colors.blue,
         ),
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("안녕"),
+          title: Text("앱임"),
         ),
-        body: Container(
-          width: double.infinity, height: 50, color: Colors.blue,
+        body: SizedBox(
+          child: ElevatedButton(onPressed: () {}, child: Text('test')),
         ),
       )
     );

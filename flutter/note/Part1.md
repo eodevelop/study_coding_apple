@@ -38,3 +38,20 @@ rules:
 - width, height, Child 정도만 제어하면 된다면 Container 대신 SizedBox 를 쓰는게 좋음
 - 기본적인 디자인 속성 이름들은 css 와 비슷
 - 여러 잡다한 내용들은 decoration 에서 제어 가능하다.
+
+## 플러터 Typography & 알아서 레이아웃 잘짜려면
+
+- hex 코드로 컬러 넣을때는 Color(0xFF코드) 와 같은 식으로 넣으면 된다.
+  - Color.fromRGBO() 와 같은 메소드 사용해도 된다.
+- 버튼은 3개중에하나 선택
+  1. TextButton()
+  2. IconBUtton()
+  3. ElevatedButton()
+- AppBar 에서 자주 쓰는 속성들
+  - title : 왼쪽 제목
+  - leading: 왼쪽에 넣을 아이콘
+  - actions: 리스트를 넣으면 우측에 넣을 버튼 지정 가능
+- 레이아웃 혼자서 잘짜는 법
+  1. 원본 디자인 준비
+  2. 예시화면에 네모 그리기
+  3. 바깥네모부터 하나하나 위젯으로
