@@ -96,3 +96,11 @@ var a = SizedBox(
     1. 스크롤바 생김
     2. 스크롤 위치 감시 가능
     3. 메모리 절약 가능
+
+## 목록 많이 만들 땐 ListView.builder, 버튼에 기능만들기
+
+- ListView.builder 를 사용하면 반복문 쉽게 사용 가능
+  - 내부 속성에 itemCount는 반복 숫자, itemBuilder 는 함수가 들어가는데 return 으로 위젯 들어가면됌
+  - itemBuilder 에는 context, index 라는 파라미터가 들어가야 한다.
+- 메소드 내부에 print 메소드 사용시 콘솔창에 출력 가능
+- 변수 선언 후 화면에 표시해줄때는 재렌더링 해줘야 한다.
