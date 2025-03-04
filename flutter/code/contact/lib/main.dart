@@ -31,7 +31,31 @@ class _MyAppState extends State<MyApp> {
           child: Text("Dialog"),
           onPressed: (){
             showDialog(context: context, builder: (context){
-              return Dialog(child: Text('안녕'));
+              var inputData = TextEditingController();  // 입력값을 저장할 컨트롤러
+              return AlertDialog(
+                title: Text('연락처 등록'),
+                content: TextField(
+                  controller: inputData,
+                  decoration: InputDecoration(
+                    hintText: '이름을 입력하세요'
+                  ),
+                ),
+                actions: [
+                  TextButton(
+                    child: Text('취소'),
+                    onPressed: (){ 
+                      Navigator.pop(context);
+                    },
+                  ),
+                  TextButton(
+                    child: Text('확인'),
+                    onPressed: (){
+                      Navigator.pop(context);
+                      // 여기서 입력된 데이터(inputData.text) 처리 가능
+                    },
+                  ),
+                ],
+              );
             });
           },
         ),
