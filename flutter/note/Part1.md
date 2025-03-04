@@ -61,3 +61,38 @@ rules:
 - Flexible 을 사용하면 크기글 % 로 줄 수 있게된다.
   - 내부에 flex 값에 숫자로 값을 넣어주면 된다.
 - Expended 를 사용하면 flex를 1 만큼 가진 Flexible 과 같다.
+
+## 코드가 길어지면 커스텀 위젯만드세요
+
+- StatelessWidget 상속받는 클래스를 생성한다.
+  - 길고 복잡한 코드가 될때 사용하면 좋음
+  - stless 라고 적으면 스니펫 사용 가능
+```dart
+class ShopItem extends StatelessWidget {
+  const ShopItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Text('안녕'),
+    );
+  }
+}
+```
+- 본인의 이름과 같은 const 변수가 하나 생긴다.
+  - 나중에는 이영역을 통해서 외부에서 사용가능한 키값들을 정의 가능하다고 한다.
+- 커스텀 레이아웃을 안만들고 변수를 만들어서 축약 가능하다.
+```dart
+var a = SizedBox(
+  child: Text('안녕'),
+);
+```
+- 하지만 위 방법은 성능에 이슈가 있을수도 있어서 변경되지 않는 값만 위 처럼 사용하는 것이 좋다.
+- 커스텀 위젯의 단점은 state 의 관리가 힘들어지거나하는 단점들이 있다.
+
+- 위젯은 내부에 내용이 많아진다고 자동으로 스크롤바가 생기지 않는다.
+  - 그런 이유로 자동으로 스크롤을 생기게 하려면 ListView를 사용하면 좋다.
+  - 그 외에도 ListView 에는 여러가지 장점이 존재한다.
+    1. 스크롤바 생김
+    2. 스크롤 위치 감시 가능
+    3. 메모리 절약 가능
