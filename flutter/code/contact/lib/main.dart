@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(
@@ -24,6 +25,23 @@ class _MyAppState extends State<MyApp> {
   var name = ['김영숙', '홍길동', '피자집'];
   var like = [0, 0, 0];
 
+  @override
+  void initState() {
+    super.initState();
+    // getPermission(); // 요즘은 안티 패턴 사용자가 거절하게 되면 사용자가 직접 설치 해줘야한다.
+  }
+
+  getPermission() async {
+    var status = await Permission.contacts.status;
+    if (status.isGranted) {
+      print('허락됨');
+    } else if (status.isDenied) {
+      print('거절됨');
+      Permission.contacts.request();
+      openAppSettings();
+    }
+  }
+
   void addName(newName) {
     setState(() {
       name.add(newName);
@@ -43,7 +61,11 @@ class _MyAppState extends State<MyApp> {
             );
           },
         ),
-        appBar: AppBar(title: Text("연락처앱")),
+        appBar: AppBar(
+            title: Text("연락처앱"),
+            actions : [
+              IconButton(onPressed: (){ getPermission(); }, icon : Icon(Icons.contacts))
+            ]),
         body: ListView.builder(
             itemCount: name.length,
             itemBuilder: (c, i){

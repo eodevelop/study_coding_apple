@@ -141,4 +141,45 @@ var a = SizedBox(
   - 선언한필드변수.text 로 받아올 수 있다.
   - onChanged 속성으로 메소드로 연동도 가능하다.
     - 여기서 사용자가 입력한 값은 메소드에 첫번째 파라미터로 받아야 한다.
-  - input 필드가 많은 경우에는 List([]) 나 Map({}) 을 사용하면 된다. 
+  - input 필드가 많은 경우에는 List([]) 나 Map({}) 을 사용하면 된다.
+
+## 유저에게 앱 권한 요청하기
+
+- pubspec.yaml 이 의존성 추가 파일이다.
+```yaml
+dependencies:
+  permission_handler: ^10.4.0
+```
+- 위 명령이 권한 핸들하는 의존성
+- 노란 전구에서 pub get 으로 라이브러리 받아올 수 있다.
+- 네이티브 설정을 위해서 android 폴더 내부에서 gradle 을 건드려야 할 수도 있다.
+- android/app/build.gradle.kts 파일에서 버전도 맞춰줘야 한다.
+```kts
+android {
+  namespace = "com.example.contact"
+  compileSdkVersion(33)
+  ndkVersion = "27.0.12077973"
+```
+- android/app/src/main/AndroidManifest.xml 파일을 직접 건드려서 받아오려는 퍼미션을 건드려야 한다.
+```xml
+<manifest 어쩌구>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+
+   <application 어쩌구>
+```
+- 이후 dart 코드에서 유저에게 요청하는 코드를 넣어야 한다.
+```dart
+  getPermission() async {
+    var status = await Permission.contacts.status;
+    if (status.isGranted) {
+      print('허락됨');
+    } else if (status.isDenied) {
+      print('거절됨');
+      Permission.contacts.request();
+      openAppSettings(); // 유저가 몇번 거절한 경우 다시 안뜨기 때문에 사용자가 직접 설정할수 있게 설정창을 띄운다.
+    }
+  }
+```
+- 위 코드로 실행 가능
