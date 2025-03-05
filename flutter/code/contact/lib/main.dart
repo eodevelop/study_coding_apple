@@ -21,12 +21,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 3;
+  var total = 3;
   var name = ['김영숙', '홍길동', '피자집'];
   var like = [0, 0, 0];
 
-  void incrementA () {
-    a++;
+  void incrementTotal () {
+    setState(() {
+      total++;
+    });
   }
 
   @override
@@ -37,7 +39,7 @@ class _MyAppState extends State<MyApp> {
           onPressed: (){
             showDialog(
               context: context, 
-              builder: (context) => CustomDialog(state: a, incrementA:incrementA)
+              builder: (context) => CustomDialog(state: total, incrementTotal:incrementTotal)
             );
           },
         ),
@@ -58,9 +60,9 @@ class _MyAppState extends State<MyApp> {
 }
 
 class CustomDialog extends StatelessWidget {
-  CustomDialog({super.key, this.state, this.incrementA});
+  CustomDialog({super.key, this.state, this.incrementTotal});
   final state;
-  final incrementA;
+  final incrementTotal;
   final inputData = TextEditingController();
 
   @override
@@ -83,7 +85,7 @@ class CustomDialog extends StatelessWidget {
         TextButton(
           child: Text('확인'),
           onPressed: (){
-            incrementA();
+            incrementTotal();
             Navigator.pop(context);
           },
         ),
