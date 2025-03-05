@@ -21,13 +21,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var total = 3;
   var name = ['김영숙', '홍길동', '피자집'];
   var like = [0, 0, 0];
 
-  void incrementTotal () {
+  void addName(newName) {
     setState(() {
-      total++;
+      name.add(newName);
+      like.add(0);
     });
   }
 
@@ -39,13 +39,13 @@ class _MyAppState extends State<MyApp> {
           onPressed: (){
             showDialog(
               context: context, 
-              builder: (context) => CustomDialog(state: total, incrementTotal:incrementTotal)
+              builder: (context) => CustomDialog(addName:addName)
             );
           },
         ),
-        appBar: AppBar(title: Text("연락처앱"),),
+        appBar: AppBar(title: Text("연락처앱")),
         body: ListView.builder(
-            itemCount: 3,
+            itemCount: name.length,
             itemBuilder: (c, i){
               return ListTile(
                 leading: Text(like[i].toString()),
@@ -60,9 +60,8 @@ class _MyAppState extends State<MyApp> {
 }
 
 class CustomDialog extends StatelessWidget {
-  CustomDialog({super.key, this.state, this.incrementTotal});
-  final state;
-  final incrementTotal;
+  CustomDialog({super.key, this.addName});
+  final addName;
   final inputData = TextEditingController();
 
   @override
@@ -85,7 +84,7 @@ class CustomDialog extends StatelessWidget {
         TextButton(
           child: Text('확인'),
           onPressed: (){
-            incrementTotal();
+            addName(inputData.text);
             Navigator.pop(context);
           },
         ),
