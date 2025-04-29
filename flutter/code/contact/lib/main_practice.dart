@@ -10,5 +10,6 @@ class MyAppPractice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: Text('초기 설정'));
+    // 브런치 테스트
   }
 }
