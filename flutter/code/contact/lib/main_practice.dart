@@ -9,7 +9,21 @@ class MyAppPractice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Text('초기 설정'));
-    // 브런치 테스트
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(backgroundColor: Colors.blue, title: Text('앱임')),
+        body: Center(child: Text('안녕')),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(Icons.phone),
+              Icon(Icons.message),
+              Icon(Icons.contact_page),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
