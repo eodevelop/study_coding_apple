@@ -14,7 +14,7 @@ class MyAppPractice extends StatelessWidget {
         appBar: AppBar(backgroundColor: Colors.blue, title: Text('앱임')),
         body: Container(
           width: double.infinity,
-          height: 50,
+          height: 60,
           color: Colors.yellow,
         ),
         bottomNavigationBar: BottomAppBar(
