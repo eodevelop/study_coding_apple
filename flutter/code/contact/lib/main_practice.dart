@@ -28,7 +28,41 @@ class MyAppPractice extends StatelessWidget {
             ),
           ],
         ),
-        body: SizedBox(),
+        body: Container(
+          width: double.infinity,
+          height: 150,
+          alignment: Alignment.topCenter,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset('assets/camera.png', width: 150),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "캐논 DSLR 100D (단렌즈, 충전기 16기가 SD 포함)",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        "성동구 행당동, 끌올 10분 전",
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                      Text("210,000원"),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end, // 우측 정렬 설정
+                        children: [Icon(Icons.heart_broken), Text("4")],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
