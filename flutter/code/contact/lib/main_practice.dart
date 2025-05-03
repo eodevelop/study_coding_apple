@@ -11,7 +11,23 @@ class MyAppPractice extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(leading: Icon(Icons.star), title: Text("data")),
+        appBar: AppBar(
+          title: Text("금호동 3가"),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Icon(Icons.search),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Icon(Icons.menu),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Icon(Icons.notifications),
+            ),
+          ],
+        ),
         body: SizedBox(),
       ),
     );
