@@ -11,22 +11,8 @@ class MyAppPractice extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.blue, title: Text('앱임')),
-        body: Container(
-          width: double.infinity,
-          height: 60,
-          color: Colors.yellow,
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Icon(Icons.phone),
-              Icon(Icons.message),
-              Icon(Icons.contact_page),
-            ],
-          ),
-        ),
+        appBar: AppBar(leading: Icon(Icons.star), title: Text("data")),
+        body: SizedBox(),
       ),
     );
   }
