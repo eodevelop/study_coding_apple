@@ -55,6 +55,7 @@ rules:
   1. 원본 디자인 준비
   2. 예시화면에 네모 그리기
   3. 바깥네모부터 하나하나 위젯으로
+     - 최상단은 Container, 내부는 Row, Column 위젯으로 구현
 
 ## Expanded, Flexible & 상품 레이아웃 숙제
 
